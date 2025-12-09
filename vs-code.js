@@ -8,11 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
             mutation.type === "attributes" &&
             mutation.attributeName === "style"
           ) {
-            if (commandDialog.style.display === "none") {
-              handleEscape();
-            } else {
-              runMyScript();
-            }
+            const isVisible = commandDialog.style.display !== "none";
+            isVisible ? showBackdrop() : hideBackdrop();
           }
         });
       });
@@ -22,39 +19,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, 500);
 
+  // Handle keyboard shortcuts
   document.addEventListener(
     "keydown",
     function (event) {
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "p") {
-        event.preventDefault();
-        setTimeout(runMyScript, 50);
-      } else if (event.key === "Escape" || event.key === "Esc") {
-        event.preventDefault();
-        handleEscape();
+      if (event.key === "Escape") {
+        hideBackdrop();
       }
     },
     true
   );
 
-  function runMyScript() {
+  function showBackdrop() {
+    if (document.getElementById("command-blur")) return; // Already exists
+
     const targetDiv = document.querySelector(".monaco-workbench");
+    if (!targetDiv) return;
 
-    const existingElement = document.getElementById("command-blur");
-    if (existingElement) {
-      existingElement.remove();
-    }
-
-    const newElement = document.createElement("div");
-    newElement.setAttribute("id", "command-blur");
-
-    newElement.addEventListener("click", function () {
-      newElement.remove();
-    });
-
-    targetDiv.appendChild(newElement);
+    const backdrop = document.createElement("div");
+    backdrop.id = "command-blur";
+    backdrop.addEventListener("click", hideBackdrop);
+    targetDiv.appendChild(backdrop);
   }
 
-  function handleEscape() {
+  function hideBackdrop() {
     const element = document.getElementById("command-blur");
     if (element) {
       element.remove();
