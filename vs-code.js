@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, 500);
 
-  // Handle keyboard shortcuts
   document.addEventListener(
     "keydown",
     function (event) {
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   function showBackdrop() {
-    if (document.getElementById("command-blur")) return; // Already exists
+    if (document.getElementById("command-blur")) return;
 
     const targetDiv = document.querySelector(".monaco-workbench");
     if (!targetDiv) return;
