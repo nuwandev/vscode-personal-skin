@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       observer.observe(commandDialog, { attributes: true });
+
+      // Fix: Check initial state immediately so backdrop appears on first open
+      const isVisible = commandDialog.style.display !== "none";
+      if (isVisible) showBackdrop();
+
       clearInterval(checkElement);
     }
   }, 500);
