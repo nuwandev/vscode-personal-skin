@@ -228,16 +228,18 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   ACTIVITY BAR - Clean Decorative Style
+   ACTIVITY BAR - Premium & Polished
    ───────────────────────────────────────────────────────────────────── */
 .part.activitybar {
-  width: 52px !important;
-  min-width: 52px !important;
+  width: 56px !important;
+  min-width: 56px !important;
   padding: 8px 0 !important;
+  background: #1a1d21 !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.04) !important;
 }
 
 .activitybar>.content {
-  width: 52px !important;
+  width: 56px !important;
   padding: 0 !important;
 }
 
@@ -250,23 +252,26 @@
   padding: 4px 0 !important;
 }
 
-/* Individual action items */
+/* Individual action items - ALL icons in activity bar */
 .activitybar .action-item {
-  width: 40px !important;
-  height: 40px !important;
-  margin: 3px auto !important;
+  width: 42px !important;
+  height: 42px !important;
+  margin: 6px auto !important;
   padding: 0 !important;
-  border-radius: 12px !important;
+  border-radius: 10px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: transparent !important;
+  transition: all 0.18s ease !important;
+  position: relative !important;
+  transform: none !important;
 }
 
 /* Action label (icon container) */
 .activitybar .action-item .action-label {
-  width: 40px !important;
-  height: 40px !important;
+  width: 42px !important;
+  height: 42px !important;
   padding: 0 !important;
   margin: 0 !important;
   display: flex !important;
@@ -274,6 +279,8 @@
   justify-content: center !important;
   font-size: 20px !important;
   line-height: 1 !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  transition: all 0.18s ease !important;
 }
 
 /* All icons unified sizing */
@@ -292,50 +299,59 @@
   width: 20px !important;
   height: 20px !important;
   object-fit: contain !important;
+  opacity: 0.55 !important;
+  transition: opacity 0.18s ease !important;
 }
 
-/* Badge positioning */
-.activitybar .badge {
-  position: absolute !important;
-  top: 2px !important;
-  right: 2px !important;
-  min-width: 16px !important;
-  height: 16px !important;
-  font-size: 9px !important;
-  border-radius: 8px !important;
-}
-
-/* Hover state */
+/* Hover state - ALL activity bar icons with smooth zoom */
 .activitybar .action-item:hover {
-  background: rgba(255, 255, 255, 0.08) !important;
-  transform: scale(1.08) !important;
+  background: rgba(97, 175, 239, 0.1) !important;
+  transform: scale(1.12) !important;
+}
+
+.activitybar .action-item:hover .action-label {
+  color: #61afef !important;
+}
+
+.activitybar .action-item:hover .action-label.icon,
+.activitybar .action-item:hover img.icon {
+  opacity: 1 !important;
 }
 
 /* Active/pressed state */
 .activitybar .action-item:active {
   transform: scale(0.95) !important;
-  background: rgba(97, 175, 239, 0.12) !important;
+  background: rgba(97, 175, 239, 0.15) !important;
 }
 
-/* Checked/selected state */
+/* Checked/selected state - with left border */
 .activitybar .action-item.checked {
-  background: rgba(97, 175, 239, 0.1) !important;
+  background: rgba(97, 175, 239, 0.08) !important;
+  border-left: 3px solid #61afef !important;
+  border-radius: 0 10px 10px 0 !important;
+  margin-left: 0 !important;
+  padding-left: 4px !important;
 }
 
-/* Active indicator - glowing line */
+.activitybar .action-item.checked .action-label {
+  color: #61afef !important;
+}
+
+.activitybar .action-item.checked .action-label.icon,
+.activitybar .action-item.checked img.icon {
+  opacity: 1 !important;
+}
+
+/* Hide the default floating indicator - we use left border instead */
 .activitybar .active-item-indicator {
-  width: 3px !important;
-  left: 0 !important;
-  border-radius: 0 3px 3px 0 !important;
-  background: linear-gradient(180deg, #7cc5ff 0%, #61afef 100%) !important;
-  box-shadow: 0 0 8px rgba(97, 175, 239, 0.6) !important;
-  transition: top 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    height 0.15s ease !important;
+  display: none !important;
+  opacity: 0 !important;
+  width: 0 !important;
 }
 
-/* Global action items (bottom section - settings, etc) */
+/* Global action items (bottom section - settings, profile) - same style */
 .activitybar .global-actions .action-item {
-  margin: 3px auto !important;
+  margin: 6px auto !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -351,21 +367,20 @@
 }
 
 .titlebar-container .menubar .menubar-menu-button {
-  padding: 0 8px !important;
   border-radius: 6px !important;
-  margin: 0 1px !important;
+  margin: 0 2px !important;
   transition: all 0.15s ease !important;
-  color: rgba(255, 255, 255, 0.75) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .titlebar-container .menubar .menubar-menu-button:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
   color: #fff !important;
 }
 
 .titlebar-container .menubar .menubar-menu-button.open {
-  background: rgba(97, 175, 239, 0.15) !important;
-  color: #61afef !important;
+  background: rgba(97, 175, 239, 0.2) !important;
+  color: #7cc5ff !important;
 }
 
 /* Command center - the main search bar with glow effect */
@@ -555,13 +570,14 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   CONTEXT MENUS
+   CONTEXT MENUS & DROPDOWN MENUS
    ───────────────────────────────────────────────────────────────────── */
 .monaco-menu {
   border-radius: 8px !important;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   overflow: hidden !important;
+  background: #2a2e36 !important;
 }
 
 .monaco-menu .monaco-action-bar.vertical .action-item {
@@ -569,8 +585,26 @@
   margin: 2px 4px !important;
 }
 
+.monaco-menu .monaco-action-bar.vertical .action-item .action-label {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
 .monaco-menu .monaco-action-bar.vertical .action-item:hover {
-  background: rgba(97, 175, 239, 0.12) !important;
+  background: rgba(97, 175, 239, 0.15) !important;
+}
+
+.monaco-menu .monaco-action-bar.vertical .action-item:hover .action-label {
+  color: #fff !important;
+}
+
+/* Menu separators */
+.monaco-menu .monaco-action-bar.vertical .action-item.disabled .action-label {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Keybinding labels in menus */
+.monaco-menu .keybinding {
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -583,8 +617,6 @@
 
 .statusbar-item {
   border-radius: 4px !important;
-  padding: 0 8px !important;
-  margin: 0 1px !important;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -613,13 +645,13 @@
 }
 
 /* Separator between git branch and sync */
-.statusbar-item.compact-left {
+/* .statusbar-item.compact-left {
   padding-left: 4px !important;
 }
 
 .statusbar-item.compact-right {
   padding-right: 4px !important;
-}
+} */
 
 /* ─────────────────────────────────────────────────────────────────────
    BREADCRUMBS - Subtle
@@ -798,13 +830,6 @@
 /* Lightbulb */
 .lightBulbWidget {
   filter: drop-shadow(0 0 3px rgba(229, 192, 123, 0.4)) !important;
-}
-
-/* Badges */
-.badge {
-  border-radius: 10px !important;
-  font-size: 10px !important;
-  font-weight: 600 !important;
 }
 
 /* Debug toolbar */
