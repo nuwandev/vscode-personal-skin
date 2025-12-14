@@ -1,59 +1,34 @@
 /* ═══════════════════════════════════════════════════════════════════
-   VS CODE - Clean, Fast, Productive
-   Minimal UI that stays out of your way
+   VS CODE - Clean, Fast, Smooth
+   Optimized for buttery animations
    ═══════════════════════════════════════════════════════════════════ */
 
-/* ─────────────────────────────────────────────────────────────────────
-   BASE TRANSITIONS - Smooth & Natural
-   ───────────────────────────────────────────────────────────────────── */
-.tab,
-.action-item,
-.statusbar-item,
-.monaco-button,
-.pane-header,
-.tab-close,
-.monaco-menu,
-.monaco-list-row {
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-/* Sidebar/Panel resize - smooth expansion */
-.part.sidebar,
-.part.panel,
-.part.auxiliarybar {
-  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    height 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-/* Split view sash - smooth highlight */
-.sash {
-  transition: background-color 0.2s ease, opacity 0.2s ease !important;
-}
-
-.sash:hover {
-  background: rgba(97, 175, 239, 0.4) !important;
-}
-
-.sash:active {
-  background: rgba(97, 175, 239, 0.6) !important;
+/* GPU Acceleration for smooth 60fps */
+* {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   TABS - Premium Look with Glow
+   TABS - Premium Look with Enhanced Glow ✨
    ───────────────────────────────────────────────────────────────────── */
 .tabs-container .tab {
   border-radius: 8px 8px 0 0 !important;
   margin-top: 3px !important;
   margin-right: 2px !important;
   padding: 0 12px !important;
-  transition: all 0.15s ease !important;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: transform, box-shadow !important;
+  transform: translateZ(0) !important;
 }
 
 .tabs-container .tab:hover {
   background: rgba(255, 255, 255, 0.08) !important;
-  transform: translateY(-2px) scale(1.02) !important;
+  transform: translateY(-2px) !important;
+  transform: translateY(-2px) translateZ(0) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .tabs-container .tab.active {
@@ -62,8 +37,18 @@
   box-shadow: 0 -2px 8px rgba(97, 175, 239, 0.15) !important;
 }
 
+/* Enhanced glow on active tab label */
 .tabs-container .tab.active .label-name {
-  color: #fff !important;
+  /* color: #7cc5ff !important; */
+  text-shadow: 0 0 10px rgba(97, 175, 239, 0.3),
+    0 0 20px rgba(97, 175, 239, 0.15) !important;
+  transition: text-shadow 0.3s ease !important;
+}
+
+.tab-close {
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: opacity, transform !important;
 }
 
 .tabs-container .tab:not(:hover) .tab-close {
@@ -74,13 +59,21 @@
   opacity: 0.7 !important;
 }
 
-/* Tab dirty indicator glow */
-.tabs-container .tab.dirty .label-name::after {
-  filter: drop-shadow(0 0 3px currentColor) !important;
+.tab-close:hover {
+  opacity: 1 !important;
+  transform: scale(1.15) !important;
+  background: rgba(224, 108, 117, 0.15) !important;
+  border-radius: 4px !important;
+}
+
+/* Tab drag feedback */
+.tabs-container .tab.dragged {
+  opacity: 0.5 !important;
+  transform: scale(0.95) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   COMMAND PALETTE - Centered with Blur & Scale Animation
+   COMMAND PALETTE - Centered with Smooth Animation ✨
    ───────────────────────────────────────────────────────────────────── */
 .quick-input-widget {
   top: 50% !important;
@@ -95,22 +88,19 @@
   box-shadow:
     0 25px 80px rgba(0, 0, 0, 0.6),
     0 10px 30px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-    0 1px 0 rgba(255, 255, 255, 0.1) inset !important;
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset !important;
   animation: paletteIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 @keyframes paletteIn {
   from {
     opacity: 0;
-    transform: translate(-50%, -45%) scale(0.9);
-    filter: blur(10px);
+    transform: translate(-50%, -48%) scale(0.96);
   }
 
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
-    filter: blur(0);
   }
 }
 
@@ -122,20 +112,30 @@
   font-size: 13px !important;
   margin-bottom: 6px !important;
   background: rgba(0, 0, 0, 0.2) !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.quick-input-filter .monaco-inputbox:focus-within {
+  background: rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 0 0 1px rgba(97, 175, 239, 0.4) inset !important;
 }
 
 .quick-input-list .monaco-list-row {
   border-radius: 5px !important;
   margin: 1px 4px !important;
   padding: 0 4px !important;
+  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: background-color, transform !important;
+}
+
+.quick-input-list .monaco-list-row:hover {
+  transform: translateX(2px) !important;
 }
 
 .quick-input-list .monaco-list-row.focused {
   background: rgba(97, 175, 239, 0.15) !important;
-}
-
-.quick-input-header {
-  margin-bottom: 4px !important;
+  transform: translateX(4px) !important;
 }
 
 /* Backdrop */
@@ -155,9 +155,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   SCROLLBARS - Hidden (Clean Look)
+   SCROLLBARS - Hidden
    ───────────────────────────────────────────────────────────────────── */
-/* Hide all scrollbars completely */
 .monaco-scrollable-element>.scrollbar {
   visibility: hidden !important;
   opacity: 0 !important;
@@ -170,65 +169,74 @@
   display: none !important;
 }
 
-/* Hide the scrollbar arrows/shadows */
-.monaco-scrollable-element>.scrollbar>.arrow-background,
-.monaco-scrollable-element>.scrollbar>.slider {
-  display: none !important;
-}
-
-/* Hide decorations ruler */
 .decorationsOverviewRuler {
   display: none !important;
   width: 0 !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   SIDEBAR & EXPLORER - Smooth Interactions
+   SIDEBAR & EXPLORER - Enhanced Hover Animation ✨
    ───────────────────────────────────────────────────────────────────── */
 .explorer-folders-view .monaco-list-row {
   border-radius: 6px !important;
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: transform !important;
+  transform: translateZ(0) !important;
 }
 
 .explorer-folders-view .monaco-list-row:hover {
   background: rgba(255, 255, 255, 0.06) !important;
-  transform: translateX(4px) !important;
-}
-
-.explorer-folders-view .monaco-list-row:hover .monaco-icon-label {
-  color: #e1e1e1 !important;
+  transform: translateX(4px) translateZ(0) !important;
+  box-shadow: -2px 0 0 rgba(97, 175, 239, 0.4) inset !important;
 }
 
 .explorer-folders-view .monaco-list-row.selected {
   background: rgba(97, 175, 239, 0.15) !important;
+  box-shadow: -3px 0 0 #61afef inset !important;
 }
 
 .explorer-folders-view .monaco-list-row.selected:hover {
   background: rgba(97, 175, 239, 0.2) !important;
+  transform: translateX(6px) translateZ(0) !important;
 }
 
-/* Pane headers with smooth collapse */
+/* File icons pulse on hover */
+.explorer-folders-view .monaco-list-row:hover .monaco-icon-label::before {
+  animation: iconPulse 0.5s ease !important;
+}
+
+@keyframes iconPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Pane headers */
 .pane-header {
   font-weight: 500 !important;
-  transition: all 0.2s ease !important;
+  transition: background-color 0.12s ease !important;
 }
 
 .pane-header:hover {
   background: rgba(255, 255, 255, 0.04) !important;
 }
 
-/* Pane collapse/expand - smooth height animation */
-.pane {
-  transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  overflow: hidden !important;
-}
-
-.pane-body {
-  transition: opacity 0.2s ease !important;
+/* Vibrancy feel */
+.part.sidebar,
+.part.panel {
+  background: rgba(30, 34, 39, 0.95) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   ACTIVITY BAR - Premium & Polished
+   ACTIVITY BAR - Clean & Smooth ✨
    ───────────────────────────────────────────────────────────────────── */
 .part.activitybar {
   width: 56px !important;
@@ -243,7 +251,6 @@
   padding: 0 !important;
 }
 
-/* Action items container */
 .activitybar .composite-bar {
   padding: 0 !important;
 }
@@ -252,7 +259,7 @@
   padding: 4px 0 !important;
 }
 
-/* Individual action items - ALL icons in activity bar */
+/* Activity bar items */
 .activitybar .action-item {
   width: 42px !important;
   height: 42px !important;
@@ -263,12 +270,13 @@
   align-items: center !important;
   justify-content: center !important;
   background: transparent !important;
-  transition: all 0.18s ease !important;
   position: relative !important;
-  transform: none !important;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  will-change: transform !important;
+  transform: translateZ(0) !important;
 }
 
-/* Action label (icon container) */
 .activitybar .action-item .action-label {
   width: 42px !important;
   height: 42px !important;
@@ -280,10 +288,10 @@
   font-size: 20px !important;
   line-height: 1 !important;
   color: rgba(255, 255, 255, 0.55) !important;
-  transition: all 0.18s ease !important;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* All icons unified sizing */
 .activitybar .action-item .codicon,
 .activitybar .action-item .action-label.codicon,
 .activitybar .action-item .action-label .codicon {
@@ -293,44 +301,51 @@
   line-height: 1 !important;
 }
 
-/* Extension/image icons */
 .activitybar .action-item .action-label.icon,
 .activitybar .action-item img.icon {
   width: 20px !important;
   height: 20px !important;
   object-fit: contain !important;
   opacity: 0.55 !important;
-  transition: opacity 0.18s ease !important;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Hover state - ALL activity bar icons with smooth zoom */
-.activitybar .action-item:hover {
+/* Hover - smooth zoom with glow */
+.activitybar .action-item:hover:not(.checked) {
   background: rgba(97, 175, 239, 0.1) !important;
-  transform: scale(1.12) !important;
+  transform: scale(1.1) translateZ(0) !important;
 }
 
 .activitybar .action-item:hover .action-label {
   color: #61afef !important;
+  filter: drop-shadow(0 0 6px rgba(97, 175, 239, 0.5)) !important;
 }
 
 .activitybar .action-item:hover .action-label.icon,
 .activitybar .action-item:hover img.icon {
   opacity: 1 !important;
+  filter: drop-shadow(0 0 6px rgba(97, 175, 239, 0.5)) !important;
 }
 
-/* Active/pressed state */
+/* Press */
 .activitybar .action-item:active {
-  transform: scale(0.95) !important;
+  transform: scale(0.95) translateZ(0) !important;
   background: rgba(97, 175, 239, 0.15) !important;
+  transition-duration: 0.1s !important;
 }
 
-/* Checked/selected state - with left border */
+/* Selected - with left border */
 .activitybar .action-item.checked {
   background: rgba(97, 175, 239, 0.08) !important;
   border-left: 3px solid #61afef !important;
   border-radius: 0 10px 10px 0 !important;
   margin-left: 0 !important;
   padding-left: 4px !important;
+}
+
+.activitybar .action-item.checked:hover {
+  transform: scale(1.05) translateZ(0) !important;
 }
 
 .activitybar .action-item.checked .action-label {
@@ -342,26 +357,23 @@
   opacity: 1 !important;
 }
 
-/* Hide the default floating indicator - we use left border instead */
+/* Hide default indicator */
 .activitybar .active-item-indicator {
   display: none !important;
-  opacity: 0 !important;
-  width: 0 !important;
 }
 
-/* Global action items (bottom section - settings, profile) - same style */
 .activitybar .global-actions .action-item {
   margin: 6px auto !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   TITLE BAR - Clean & Minimal
+   TITLE BAR - Enhanced Interactions ✨
    ───────────────────────────────────────────────────────────────────── */
 .part.titlebar {
   height: 32px !important;
 }
 
-/* Menubar - Clean and Visible */
+
 .titlebar-container .menubar {
   opacity: 1 !important;
 }
@@ -369,8 +381,9 @@
 .titlebar-container .menubar .menubar-menu-button {
   border-radius: 6px !important;
   margin: 0 2px !important;
-  transition: all 0.15s ease !important;
-  color: rgba(255, 255, 255, 0.5) !important;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .titlebar-container .menubar .menubar-menu-button:hover {
@@ -383,25 +396,29 @@
   color: #7cc5ff !important;
 }
 
-/* Command center - the main search bar with glow effect */
+/* Command center with enhanced glow */
 .command-center {
-  border-radius: 8px !important;
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.06) !important;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 6px !important;
+  margin: 0 2px !important;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
   max-width: 500px !important;
 }
 
 .command-center:hover {
   background: rgba(255, 255, 255, 0.08) !important;
   border-color: rgba(97, 175, 239, 0.3) !important;
-  box-shadow: 0 0 20px rgba(97, 175, 239, 0.15),
-    0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 0 20px rgba(97, 175, 239, 0.15) !important;
+  transform: translateY(-1px) !important;
 }
 
 .command-center .search-label {
   opacity: 0.6 !important;
-  transition: opacity 0.15s ease, color 0.15s ease !important;
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .command-center:hover .search-label {
@@ -409,78 +426,115 @@
   color: #61afef !important;
 }
 
-/* Title bar action buttons */
+/* Title bar buttons */
 .titlebar-right .action-item {
   border-radius: 4px !important;
   margin: 2px 1px !important;
   opacity: 0.7 !important;
-  transition: opacity 0.1s ease, background-color 0.1s ease !important;
+  transition: opacity 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
+
 
 .titlebar-right .action-item:hover {
   opacity: 1 !important;
   background: rgba(255, 255, 255, 0.08) !important;
+  transform: scale(1.05) !important;
 }
 
-/* Navigation arrows */
 .titlebar-left .action-item {
   opacity: 0.5 !important;
-  transition: opacity 0.1s ease !important;
+  transition: opacity 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .titlebar-left .action-item:hover {
   opacity: 1 !important;
+  transform: scale(1.05) !important;
+}
+
+.titlebar-container .action-item {
+  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.titlebar-container .action-item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-radius: 4px !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   COMPOSITE BAR (Panel/Sidebar/Terminal tabs) - Clean
+   COMPOSITE BAR (Panel tabs)
    ───────────────────────────────────────────────────────────────────── */
 .composite-bar .action-item {
-  transition: color 0.1s ease, background-color 0.1s ease !important;
+  transition: color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.composite-bar .action-item:hover {
+  transform: translateY(-1px) !important;
 }
 
 .composite-bar .action-item.checked .action-label {
   color: #e7e7e7 !important;
 }
 
-/* Remove the blue indicator box - use underline instead */
 .composite-bar .active-item-indicator {
   background: transparent !important;
   height: 2px !important;
   bottom: 0 !important;
   top: auto !important;
   border-radius: 2px 2px 0 0 !important;
+  transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .composite.title .action-item.checked .active-item-indicator {
   background: #61afef !important;
+  box-shadow: 0 0 8px rgba(97, 175, 239, 0.5) !important;
 }
 
-/* Panel header tabs */
 .composite.title .action-item:hover:not(.checked) .action-label {
   color: rgba(231, 231, 231, 0.8) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   EDITOR - Clean Focus
+   EDITOR - Enhanced Focus ✨
    ───────────────────────────────────────────────────────────────────── */
 .view-overlays .current-line {
   background: rgba(255, 255, 255, 0.02) !important;
   border: none !important;
+  box-shadow: 0 0 20px rgba(97, 175, 239, 0.03) !important;
 }
 
 .monaco-editor .line-numbers.active-line-number {
   color: #61afef !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 8px rgba(97, 175, 239, 0.3) !important;
 }
 
 .monaco-editor .bracket-match {
-  background: rgba(97, 175, 239, 0.1) !important;
-  border: 1px solid rgba(97, 175, 239, 0.3) !important;
+  background: rgba(97, 175, 239, 0.12) !important;
+  border: 1px solid rgba(97, 175, 239, 0.4) !important;
   border-radius: 2px !important;
+  animation: bracketPulse 0.5s ease !important;
+}
+
+@keyframes bracketPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(97, 175, 239, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 8px rgba(97, 175, 239, 0.5);
+  }
 }
 
 .minimap {
   opacity: 0.5 !important;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .minimap:hover {
@@ -491,22 +545,40 @@
   opacity: 0.1 !important;
 }
 
+/* Focus mode with smooth transition */
+.editor-group-container:not(.active) {
+  opacity: 0.75 !important;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.editor-group-container:not(.active):hover {
+  opacity: 1 !important;
+}
+
+.editor-group-container.active {
+  box-shadow: inset 0 1px 0 rgba(97, 175, 239, 0.2) !important;
+}
+
+/* Cursor with glow */
+.monaco-editor .cursor {
+  box-shadow: 0 0 8px currentColor !important;
+}
+
 /* ─────────────────────────────────────────────────────────────────────
-   HOVER & TOOLTIPS - Subtle Rise Effect
+   HOVER & TOOLTIPS - Smoother Animations ✨
    ───────────────────────────────────────────────────────────────────── */
 .monaco-hover {
   border-radius: 10px !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4),
-    0 2px 8px rgba(0, 0, 0, 0.2) !important;
-  animation: hoverRise 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
   backdrop-filter: blur(8px) !important;
+  animation: fadeSlideUp 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-@keyframes hoverRise {
+@keyframes fadeSlideUp {
   from {
     opacity: 0;
-    transform: translateY(6px) scale(0.98);
+    transform: translateY(6px) scale(0.96);
   }
 
   to {
@@ -516,47 +588,51 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   AUTOCOMPLETE - Slide Up Animation
+   AUTOCOMPLETE - Buttery Smooth ✨
    ───────────────────────────────────────────────────────────────────── */
 .suggest-widget {
   border-radius: 10px !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
-    0 4px 12px rgba(0, 0, 0, 0.2) !important;
-  animation: suggestSlideUp 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-  backdrop-filter: blur(10px) !important;
-}
-
-@keyframes suggestSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.98);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: none !important;
+  animation: fadeSlideUp 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .suggest-widget .monaco-list-row {
   border-radius: 6px !important;
   margin: 2px 6px !important;
-  transition: all 0.1s ease !important;
+  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: transform !important;
 }
 
 .suggest-widget .monaco-list-row.focused {
   background: rgba(97, 175, 239, 0.18) !important;
-  transform: translateX(2px) !important;
+  transform: translateX(3px) !important;
+  box-shadow: -2px 0 0 #61afef inset !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   NOTIFICATIONS
+   NOTIFICATIONS - Enhanced Slide In ✨
    ───────────────────────────────────────────────────────────────────── */
 .notification-toast {
   border-radius: 8px !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-left: 3px solid #61afef !important;
+  animation: slideInRight 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -567,48 +643,23 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   border-top: none !important;
+  animation: slideDown 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   CONTEXT MENUS & DROPDOWN MENUS
-   ───────────────────────────────────────────────────────────────────── */
-.monaco-menu {
-  border-radius: 8px !important;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  overflow: hidden !important;
-  background: #2a2e36 !important;
-}
-
-.monaco-menu .monaco-action-bar.vertical .action-item {
-  border-radius: 4px !important;
-  margin: 2px 4px !important;
-}
-
-.monaco-menu .monaco-action-bar.vertical .action-item .action-label {
-  color: rgba(255, 255, 255, 0.9) !important;
-}
-
-.monaco-menu .monaco-action-bar.vertical .action-item:hover {
-  background: rgba(97, 175, 239, 0.15) !important;
-}
-
-.monaco-menu .monaco-action-bar.vertical .action-item:hover .action-label {
-  color: #fff !important;
-}
-
-/* Menu separators */
-.monaco-menu .monaco-action-bar.vertical .action-item.disabled .action-label {
-  color: rgba(255, 255, 255, 0.4) !important;
-}
-
-/* Keybinding labels in menus */
-.monaco-menu .keybinding {
-  color: rgba(255, 255, 255, 0.5) !important;
-}
-
-/* ─────────────────────────────────────────────────────────────────────
-   STATUS BAR - With Press Feedback
+   STATUS BAR - Micro Interactions ✨
    ───────────────────────────────────────────────────────────────────── */
 .part.statusbar {
   height: 24px !important;
@@ -617,81 +668,84 @@
 
 .statusbar-item {
   border-radius: 4px !important;
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  will-change: transform !important;
 }
 
 .statusbar-item:hover {
   background: rgba(255, 255, 255, 0.1) !important;
-  transform: translateY(-1px) !important;
+  transform: translateY(-2px) !important;
 }
 
 .statusbar-item:active {
-  transform: scale(0.95) !important;
+  transform: translateY(0) scale(0.95) !important;
   background: rgba(97, 175, 239, 0.2) !important;
+  transition-duration: 0.1s !important;
 }
 
 .statusbar-item .codicon {
   font-size: 13px !important;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-/* Status bar items - no extra gaps */
-.statusbar .left-items,
-.statusbar .right-items {
-  gap: 0 !important;
+.statusbar-item:hover .codicon {
+  transform: scale(1.1) !important;
 }
-
-.statusbar .items-container {
-  gap: 0 !important;
-}
-
-/* Separator between git branch and sync */
-/* .statusbar-item.compact-left {
-  padding-left: 4px !important;
-}
-
-.statusbar-item.compact-right {
-  padding-right: 4px !important;
-} */
 
 /* ─────────────────────────────────────────────────────────────────────
-   BREADCRUMBS - Subtle
+   BREADCRUMBS
    ───────────────────────────────────────────────────────────────────── */
 .breadcrumbs-control {
   opacity: 0.6 !important;
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .breadcrumbs-control:hover {
   opacity: 1 !important;
 }
 
+.codicon-breadcrumb-separator {
+  opacity: 0.4 !important;
+  transition: opacity 0.15s ease !important;
+}
+
+.breadcrumbs-control:hover .codicon-breadcrumb-separator {
+  opacity: 0.7 !important;
+}
+
 /* ─────────────────────────────────────────────────────────────────────
-   TERMINAL - Clean tabs
+   TERMINAL
    ───────────────────────────────────────────────────────────────────── */
 .terminal-tabs-entry {
   border-radius: 4px !important;
-  transition: background-color 0.1s ease !important;
+  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .terminal-tabs-entry:hover {
   background: rgba(255, 255, 255, 0.05) !important;
+  transform: translateX(2px) !important;
 }
 
 .terminal-tabs-entry.is-active {
   background: rgba(97, 175, 239, 0.1) !important;
+  box-shadow: -2px 0 0 #61afef inset !important;
 }
 
-/* Terminal decoration icons */
 .terminal-command-decoration {
   opacity: 0.6 !important;
-  transition: opacity 0.1s ease !important;
+  transition: opacity 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .terminal-command-decoration:hover {
   opacity: 1 !important;
+  transform: scale(1.1) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   CHAT PANEL - Copilot/AI
+   CHAT / COPILOT
    ───────────────────────────────────────────────────────────────────── */
 .interactive-session {
   font-size: 13px !important;
@@ -699,15 +753,22 @@
 
 .chat-input-container {
   border-radius: 8px !important;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.chat-input-container:focus-within {
+  box-shadow: 0 0 0 2px rgba(97, 175, 239, 0.3) !important;
 }
 
 .chat-codeblock-pill-widget {
   border-radius: 6px !important;
-  transition: background-color 0.1s ease !important;
+  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .chat-codeblock-pill-widget:hover {
   background: rgba(255, 255, 255, 0.08) !important;
+  transform: translateY(-1px) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -715,35 +776,49 @@
    ───────────────────────────────────────────────────────────────────── */
 .settings-editor .setting-item {
   border-radius: 6px !important;
+  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .settings-editor .setting-item:hover {
   background: rgba(255, 255, 255, 0.02) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   INPUTS & BUTTONS - Lift & Press Effects
+   INPUTS & BUTTONS - Premium Interactions ✨
    ───────────────────────────────────────────────────────────────────── */
 .monaco-inputbox {
   border-radius: 8px !important;
-  transition: all 0.2s ease !important;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.monaco-inputbox.synthetic-focus,
+.monaco-inputbox:focus-within {
+  box-shadow: 0 0 0 2px rgba(97, 175, 239, 0.25),
+    0 4px 12px rgba(97, 175, 239, 0.15) !important;
+  border-color: #61afef !important;
+  transform: translateY(-1px) !important;
 }
 
 .monaco-button {
   border-radius: 8px !important;
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-  position: relative !important;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: transform !important;
 }
 
 .monaco-button:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25),
-    0 2px 8px rgba(97, 175, 239, 0.2) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
 }
 
 .monaco-button:active {
   transform: translateY(0) scale(0.98) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  transition-duration: 0.1s !important;
 }
 
 .monaco-button.primary {
@@ -758,106 +833,78 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   TITLE BAR & COMMAND CENTER
-   ───────────────────────────────────────────────────────────────────── */
-.command-center {
-  border-radius: 6px !important;
-}
-
-/* ─────────────────────────────────────────────────────────────────────
-   DROPDOWNS & WELCOME
+   DROPDOWNS & MISC
    ───────────────────────────────────────────────────────────────────── */
 .monaco-dropdown {
   border-radius: 6px !important;
+  transition: transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.monaco-dropdown:hover {
+  transform: translateY(-1px) !important;
 }
 
 .welcomePageFocusElement {
   border-radius: 8px !important;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.welcomePageFocusElement:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   PRODUCTIVITY FEATURES
+   SPLIT VIEW SASH - Enhanced Feedback ✨
    ───────────────────────────────────────────────────────────────────── */
-/* Focus mode - dim inactive editors slightly */
-.editor-group-container:not(.active) {
-  opacity: 0.75 !important;
+.sash {
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.editor-group-container:not(.active):hover {
-  opacity: 1 !important;
+.sash:hover {
+  background: rgba(97, 175, 239, 0.4) !important;
+  box-shadow: 0 0 8px rgba(97, 175, 239, 0.3) !important;
 }
 
-/* Modified file indicator */
-.tab.dirty .tab-label::after {
-  content: "" !important;
-  position: absolute !important;
-  top: 50% !important;
-  right: 4px !important;
-  width: 6px !important;
-  height: 6px !important;
-  background: #e5c07b !important;
-  border-radius: 50% !important;
-  transform: translateY(-50%) !important;
+.sash:active {
+  background: rgba(97, 175, 239, 0.6) !important;
+  box-shadow: 0 0 12px rgba(97, 175, 239, 0.5) !important;
 }
 
-/* Search highlight */
+/* ─────────────────────────────────────────────────────────────────────
+   EDITOR FEATURES
+   ───────────────────────────────────────────────────────────────────── */
+/* Search */
 .monaco-editor .findMatch {
-  background: rgba(229, 192, 123, 0.25) !important;
-  border: 1px solid rgba(229, 192, 123, 0.5) !important;
+  background: rgba(229, 192, 123, 0.2) !important;
+  border: 1px solid rgba(229, 192, 123, 0.4) !important;
   border-radius: 2px !important;
+  animation: matchPulse 0.5s ease !important;
+}
+
+@keyframes matchPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(229, 192, 123, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 8px rgba(229, 192, 123, 0.5);
+  }
 }
 
 .monaco-editor .currentFindMatch {
-  background: rgba(229, 192, 123, 0.45) !important;
+  background: rgba(229, 192, 123, 0.35) !important;
   border: 1px solid #e5c07b !important;
-  border-radius: 2px !important;
+  box-shadow: 0 0 10px rgba(229, 192, 123, 0.4) !important;
 }
 
-/* Pinned tabs */
-.tab.sticky {
-  border-left: 2px solid #98c379 !important;
-}
-
-/* Git colors */
-.monaco-icon-label.modified {
-  color: #e5c07b !important;
-}
-
-.monaco-icon-label.untracked {
-  color: #98c379 !important;
-}
-
-/* Lightbulb */
-.lightBulbWidget {
-  filter: drop-shadow(0 0 3px rgba(229, 192, 123, 0.4)) !important;
-}
-
-/* Debug toolbar */
-.debug-toolbar {
-  border-radius: 8px !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-
-/* Peek view */
-.peekview-widget {
-  border-radius: 8px !important;
-  overflow: hidden !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
-}
-
-/* Checkboxes */
-.monaco-checkbox {
-  border-radius: 4px !important;
-}
-
-/* Codelens */
-.codelens-decoration {
-  opacity: 0.55 !important;
-}
-
-.codelens-decoration:hover {
-  opacity: 1 !important;
+/* Selection */
+.monaco-editor .selected-text {
+  background: rgba(97, 175, 239, 0.18) !important;
 }
 
 /* Word highlight */
@@ -876,257 +923,16 @@
 /* Indent guides */
 .monaco-editor .lines-content .core-guide-indent {
   opacity: 0.12 !important;
+  transition: opacity 0.15s ease !important;
 }
 
 .monaco-editor .lines-content .core-guide-indent.indent-active {
   opacity: 0.35 !important;
   border-color: #61afef !important;
+  box-shadow: 0 0 4px rgba(97, 175, 239, 0.2) !important;
 }
 
-/* Selection */
-.monaco-editor .selected-text {
-  background: rgba(97, 175, 239, 0.15) !important;
-}
-
-/* Diff editor */
-.monaco-editor .insert-sign,
-.monaco-diff-editor .insert-sign {
-  background: rgba(152, 195, 121, 0.2) !important;
-}
-
-.monaco-editor .delete-sign,
-.monaco-diff-editor .delete-sign {
-  background: rgba(224, 108, 117, 0.2) !important;
-}
-
-/* Progress bar */
-.monaco-progress-container .progress-bit {
-  background: linear-gradient(90deg, #61afef, #98c379, #61afef) !important;
-  background-size: 200% 100% !important;
-}
-
-/* Action icons */
-.action-label.codicon:hover {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border-radius: 4px !important;
-}
-
-/* Links */
-.monaco-link:hover {
-  text-decoration: underline !important;
-  text-decoration-color: #61afef !important;
-}
-
-/* Keyboard shortcuts */
-.monaco-keybinding-key {
-  border-radius: 4px !important;
-  padding: 2px 5px !important;
-  font-size: 11px !important;
-}
-
-/* Folder twistie */
-.monaco-tl-twistie.collapsible:not(.collapsed) {
-  color: #61afef !important;
-}
-
-/* Breadcrumb separator */
-.codicon-breadcrumb-separator {
-  opacity: 0.4 !important;
-}
-
-/* ─────────────────────────────────────────────────────────────────────
-   SMOOTH ANIMATIONS (subtle, fast)
-   ───────────────────────────────────────────────────────────────────── */
-/* Twistie rotation */
-.monaco-tl-twistie {
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-}
-
-.monaco-tl-twistie.collapsed {
-  transform: rotate(-90deg) !important;
-}
-
-/* Notification slide with spring effect */
-.notification-toast {
-  animation: notificationSlide 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-}
-
-@keyframes notificationSlide {
-  from {
-    opacity: 0;
-    transform: translateX(40px) scale(0.9);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* Context menu - smooth appear */
-.monaco-menu {
-  animation: menuIn 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-}
-
-@keyframes menuIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(-4px);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-/* Find widget */
-.editor-widget.find-widget {
-  animation: slideDown 0.15s ease !important;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Scrollbar */
-.slider {
-  transition: width 0.1s ease, opacity 0.1s ease !important;
-}
-
-/* Input focus */
-.monaco-inputbox {
-  transition: box-shadow 0.15s ease !important;
-}
-
-.monaco-inputbox.synthetic-focus,
-.monaco-inputbox:focus-within {
-  box-shadow: 0 0 0 2px rgba(97, 175, 239, 0.2) !important;
-}
-
-/* Tab close */
-.tab-close {
-  transition: opacity 0.1s ease !important;
-}
-
-/* Breadcrumbs */
-.breadcrumbs-control {
-  transition: opacity 0.1s ease !important;
-}
-
-/* Minimap */
-.minimap {
-  transition: opacity 0.15s ease !important;
-}
-
-/* Editor actions */
-.editor-actions .action-item {
-  transition: opacity 0.1s ease !important;
-}
-
-/* Folder icons */
-.codicon-chevron-down,
-.codicon-chevron-right {
-  transition: transform 0.1s ease !important;
-}
-
-/* Title bar buttons */
-.titlebar-container .action-item {
-  transition: background-color 0.1s ease !important;
-}
-
-.titlebar-container .action-item:hover {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border-radius: 4px !important;
-}
-
-/* ─────────────────────────────────────────────────────────────────────
-   macOS-INSPIRED POLISH
-   ───────────────────────────────────────────────────────────────────── */
-
-/* Vibrancy feel on panels */
-.part.sidebar,
-.part.panel {
-  background: rgba(30, 34, 39, 0.95) !important;
-}
-
-/* Smooth icon hovers */
-.codicon {
-  transition: color 0.1s ease, transform 0.1s ease !important;
-}
-
-.codicon:hover {
-  color: #61afef !important;
-}
-
-/* Pill-shaped tabs on hover - combined with base tab styles */
-
-/* Softer shadows everywhere */
-.shadow {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* Focus ring - macOS blue style */
-*:focus-visible {
-  outline: 2px solid rgba(97, 175, 239, 0.5) !important;
-  outline-offset: -2px !important;
-  border-radius: 4px !important;
-}
-
-/* Smooth list row transitions */
-.monaco-list-row {
-  transition: background-color 0.1s ease !important;
-}
-
-/* Panel title bar subtle */
-.composite.title {
-  opacity: 0.9 !important;
-  transition: opacity 0.1s ease !important;
-}
-
-.composite.title:hover {
-  opacity: 1 !important;
-}
-
-/* Editor group header */
-.editor-group-container .title {
-  transition: background-color 0.1s ease !important;
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   STANDOUT FEATURES - Premium Polish
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* Glowing active editor border */
-.editor-group-container.active {
-  box-shadow: inset 0 1px 0 rgba(97, 175, 239, 0.2) !important;
-}
-
-/* Notification styling */
-.notification-toast {
-  border-left: 3px solid #61afef !important;
-  border-radius: 8px !important;
-}
-
-/* Git diff colors - more vibrant */
+/* Diff */
 .monaco-editor .line-insert,
 .monaco-editor .char-insert {
   background: rgba(152, 195, 121, 0.15) !important;
@@ -1137,67 +943,340 @@
   background: rgba(224, 108, 117, 0.15) !important;
 }
 
-/* Search results glow */
-.monaco-editor .findMatch {
-  background: rgba(229, 192, 123, 0.2) !important;
-  border: 1px solid rgba(229, 192, 123, 0.4) !important;
-  box-shadow: 0 0 6px rgba(229, 192, 123, 0.2) !important;
-  border-radius: 2px !important;
+/* Git colors */
+.monaco-icon-label.modified {
+  color: #e5c07b !important;
 }
 
-.monaco-editor .currentFindMatch {
-  background: rgba(229, 192, 123, 0.35) !important;
-  border: 1px solid #e5c07b !important;
-  box-shadow: 0 0 10px rgba(229, 192, 123, 0.4) !important;
+.monaco-icon-label.untracked {
+  color: #98c379 !important;
 }
 
-/* Selection with subtle glow */
-.monaco-editor .selected-text {
-  background: rgba(97, 175, 239, 0.18) !important;
-  box-shadow: 0 0 0 1px rgba(97, 175, 239, 0.1) !important;
+/* Pinned tabs */
+.tab.sticky {
+  border-left: 2px solid #98c379 !important;
 }
 
-/* Matching brackets glow */
-.monaco-editor .bracket-match {
-  background: rgba(97, 175, 239, 0.12) !important;
-  border: 1px solid rgba(97, 175, 239, 0.4) !important;
-  box-shadow: 0 0 4px rgba(97, 175, 239, 0.2) !important;
+.tab.sticky .label-name {
+  font-weight: 600 !important;
 }
 
-/* Error/Warning squiggles - softer */
-.monaco-editor .squiggly-error {
-  filter: drop-shadow(0 0 2px rgba(224, 108, 117, 0.5)) !important;
+/* Debug toolbar */
+.debug-toolbar {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  animation: fadeSlideUp 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-.monaco-editor .squiggly-warning {
-  filter: drop-shadow(0 0 2px rgba(229, 192, 123, 0.5)) !important;
+/* Peek view */
+.peekview-widget {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  animation: fadeSlideUp 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-/* Button effects handled in INPUTS & BUTTONS section */
-
-/* Explorer item hover - subtle slide */
-.explorer-folders-view .monaco-list-row:hover .monaco-icon-label {
-  transform: translateX(2px) !important;
-  transition: transform 0.1s ease !important;
+/* Checkboxes */
+.monaco-checkbox {
+  border-radius: 4px !important;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-/* Explorer item hover slide effect handled in explorer section */
-
-/* Input focus glow */
-.monaco-inputbox.synthetic-focus,
-.monaco-inputbox:focus-within {
-  box-shadow:
-    0 0 0 2px rgba(97, 175, 239, 0.25),
-    0 2px 8px rgba(0, 0, 0, 0.2) !important;
-  border-color: #61afef !important;
+.monaco-checkbox:hover {
+  transform: scale(1.1) !important;
 }
 
-/* Dropdown menu appear animation */
-.monaco-dropdown-with-primary:hover .monaco-dropdown {
-  animation: dropdownFade 0.1s ease !important;
+/* Codelens */
+.codelens-decoration {
+  opacity: 0.55 !important;
+  transition: opacity 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-@keyframes dropdownFade {
+.codelens-decoration:hover {
+  opacity: 1 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Progress bar with gradient animation */
+.monaco-progress-container .progress-bit {
+  background: linear-gradient(90deg, #61afef, #98c379, #e5c07b, #61afef) !important;
+  background-size: 200% 100% !important;
+  animation: progressGradient 2s linear infinite !important;
+}
+
+@keyframes progressGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Action icons */
+.action-label.codicon:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-radius: 4px !important;
+  transform: scale(1.1) !important;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+/* Links */
+.monaco-link {
+  transition: color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    text-decoration-color 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.monaco-link:hover {
+  text-decoration: underline !important;
+  text-decoration-color: #61afef !important;
+  color: #7cc5ff !important;
+}
+
+/* Keyboard shortcuts */
+.monaco-keybinding-key {
+  border-radius: 4px !important;
+  padding: 2px 5px !important;
+  font-size: 11px !important;
+  transition: transform 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.monaco-keybinding-key:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Folder twistie */
+.monaco-tl-twistie.collapsible:not(.collapsed) {
+  color: #61afef !important;
+  filter: drop-shadow(0 0 4px rgba(97, 175, 239, 0.3)) !important;
+}
+
+/* Lightbulb */
+.lightBulbWidget {
+  filter: drop-shadow(0 0 3px rgba(229, 192, 123, 0.4)) !important;
+  animation: lightbulbPulse 2s ease-in-out infinite !important;
+}
+
+@keyframes lightbulbPulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 3px rgba(229, 192, 123, 0.4));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 8px rgba(229, 192, 123, 0.6));
+  }
+}
+
+/* Badges */
+.badge {
+  border-radius: 10px !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.badge:hover {
+  transform: scale(1.05) !important;
+}
+
+/* Panel title */
+.composite.title {
+  opacity: 0.9 !important;
+  transition: opacity 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.composite.title:hover {
+  opacity: 1 !important;
+}
+
+/* Editor watermark */
+.editor-group-watermark {
+  opacity: 0.4 !important;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.editor-group-watermark:hover {
+  opacity: 0.6 !important;
+}
+
+/* List rows */
+.monaco-list-row {
+  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Codicons */
+.codicon {
+  transition: color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Shadows */
+.shadow {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   ADDITIONAL PREMIUM TOUCHES ✨
+   ───────────────────────────────────────────────────────────────────── */
+
+/* Smooth scrolling everywhere */
+* {
+  scroll-behavior: smooth !important;
+}
+
+/* Enhanced focus outlines */
+*:focus-visible {
+  outline: 2px solid rgba(97, 175, 239, 0.5) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px !important;
+}
+
+/* Tree indent with glow on expand */
+.monaco-tree-sticky-row {
+  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.monaco-tree-sticky-row:hover {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Extension badges */
+.extensions-badge {
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.extensions-badge:hover {
+  transform: scale(1.1) !important;
+}
+
+/* Notification buttons */
+.notification-toast .action-item {
+  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.notification-toast .action-item:hover {
+  transform: translateY(-1px) !important;
+}
+
+/* Panel resize handle */
+.monaco-sash {
+  transition: background-color 0.15s ease !important;
+}
+
+/* Workbench loading indicator */
+.monaco-workbench .part>.content.loading::before {
+  animation: spin 1s linear infinite !important;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced tab drag preview */
+.monaco-drag-image {
+  opacity: 0.85 !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 8px !important;
+}
+
+/* Sidebar sections */
+.split-view-view {
+  transition: max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enhanced selection in lists */
+.monaco-list:focus .monaco-list-row.selected {
+  box-shadow: -3px 0 0 #61afef inset,
+    0 0 20px rgba(97, 175, 239, 0.1) !important;
+}
+
+/* Git decoration gutter */
+.dirty-diff-added-glyph,
+.dirty-diff-modified-glyph,
+.dirty-diff-deleted-glyph {
+  transition: opacity 0.15s ease, transform 0.15s ease !important;
+}
+
+.dirty-diff-added-glyph:hover,
+.dirty-diff-modified-glyph:hover,
+.dirty-diff-deleted-glyph:hover {
+  opacity: 1 !important;
+  transform: scaleX(1.5) !important;
+}
+
+/* Smooth opacity transitions for overlays */
+.monaco-editor .overlayWidgets,
+.monaco-editor .contentWidgets {
+  transition: opacity 0.15s ease !important;
+}
+
+/* Enhanced minimap slider */
+.minimap-slider {
+  transition: background-color 0.15s ease,
+    opacity 0.15s ease !important;
+}
+
+.minimap-slider:hover {
+  background-color: rgba(97, 175, 239, 0.2) !important;
+}
+
+/* Symbol icons pulse on match */
+.monaco-highlighted-label .highlight {
+  animation: highlightPulse 0.5s ease !important;
+}
+
+@keyframes highlightPulse {
+
+  0%,
+  100% {
+    background-color: rgba(229, 192, 123, 0.2);
+  }
+
+  50% {
+    background-color: rgba(229, 192, 123, 0.4);
+  }
+}
+
+.monaco-menu-container,
+.context-view {
+  z-index: 9999 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONTEXT MENUS - One Dark Pro Style 🎯
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Menu container */
+.monaco-menu-container,
+.context-view {
+  z-index: 9999 !important;
+}
+
+/* Menu dropdown - matches One Dark Pro */
+.monaco-menu {
+  padding: 4px !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  animation: menuFadeIn 0.12s ease-out !important;
+}
+
+@keyframes menuFadeIn {
   from {
     opacity: 0;
     transform: translateY(-4px);
@@ -1209,39 +1288,48 @@
   }
 }
 
-/* Status bar remote indicator glow */
-.statusbar-item[id="status.host"] .codicon {
-  filter: drop-shadow(0 0 4px rgba(97, 175, 239, 0.4)) !important;
+/* Menu items - subtle improvements */
+.monaco-menu .monaco-action-bar .action-item {
+  border-radius: 4px !important;
+  margin: 1px 3px !important;
 }
 
-/* Badge pulse for notifications */
-.badge .badge-content:not(:empty) {
-  animation: badgePulse 2s ease-in-out infinite !important;
+.monaco-menu .monaco-action-bar .action-item .action-menu-item {
+  padding: 5px 8px !important;
+  transition: background-color 0.1s ease !important;
 }
 
-@keyframes badgePulse {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(77, 120, 204, 0.4);
-  }
-
-  50% {
-    box-shadow: 0 0 0 4px rgba(77, 120, 204, 0);
-  }
+/* Hover - subtle One Dark blue */
+.monaco-menu .monaco-action-bar .action-item:hover .action-menu-item {
+  background: rgba(97, 175, 239, 0.1) !important;
 }
 
-/* Smooth panel resize handle */
-.sash:active {
-  background: rgba(97, 175, 239, 0.5) !important;
+.monaco-menu .monaco-action-bar .action-item.focused .action-menu-item {
+  background: rgba(97, 175, 239, 0.12) !important;
 }
 
-/* Editor watermark fade */
-.editor-group-watermark {
+/* Keyboard shortcuts */
+.monaco-menu .keybinding {
+  opacity: 0.45 !important;
+  margin-left: 20px !important;
+}
+
+/* Icons */
+.monaco-menu .action-label .codicon {
+  opacity: 0.8 !important;
+}
+
+.monaco-menu .action-item:hover .action-label .codicon {
+  opacity: 1 !important;
+}
+
+/* Disabled items */
+.monaco-menu .action-item.disabled {
   opacity: 0.4 !important;
-  transition: opacity 0.2s ease !important;
 }
 
-.editor-group-watermark:hover {
-  opacity: 0.6 !important;
+/* Separators */
+.monaco-menu .action-item.separator {
+  background: rgba(255, 255, 255, 0.06) !important;
+  margin: 4px 6px !important;
 }
