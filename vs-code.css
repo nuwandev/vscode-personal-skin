@@ -52,6 +52,20 @@
   box-shadow: 0 -2px 8px rgba(97, 175, 239, 0.15) !important;
 }
 
+/* Enhanced glow on active tab label */
+.tabs-container .tab.active .label-name {
+  /* color: #7cc5ff !important; */
+  text-shadow: 0 0 10px rgba(97, 175, 239, 0.3),
+    0 0 20px rgba(97, 175, 239, 0.15) !important;
+  transition: text-shadow 0.3s ease !important;
+}
+
+.tab-close {
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: opacity, transform !important;
+}
+
 .tabs-container .tab:not(:hover) .tab-close {
   opacity: 0 !important;
 }
