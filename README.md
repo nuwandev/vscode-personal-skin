@@ -5,72 +5,102 @@ Minimal, fast, and beautiful UI polish for Visual Studio Code inspired by macOS/
 ## Features
 
 - Clean tabs with glow and subtle lift
-- Centered command palette with blur + scale
-- Minimal activity bar (decorative) with gentle hover
-- Explorer rows slide/fade on hover
-- Smooth pane collapse/expand and resizer highlight
+- Centered command palette with blur + scale-in
+- Minimal activity bar with gentle hover/press feedback
+- Explorer rows slide + subtle highlight on hover
+- Smooth pane resize/collapse transitions and resizer (sash) highlight
 - Suggest/hover widgets with rise/slide animations
-- Thin (or hidden) scrollbars — configurable
+- Hidden scrollbars (editable in CSS)
 - Status bar press feedback and compact layout
 
 ## Files
 
 - `vs-code.css` — main stylesheet
-- `vs-code.js` — optional JS (command palette backdrop/blur)
+- `vs-code.js` — optional JS (command palette backdrop overlay + click/Escape dismissal)
 
-## Quick Start (Windows/macOS/Linux)
+## Setup (Windows/macOS/Linux)
 
 This skin uses the extension `be5invis.vscode-custom-css` to inject custom CSS/JS into VS Code.
 
-1. Install extension
+### 1) Install the loader extension
 
-   - Open VS Code → Extensions → search "Custom CSS and JS Loader" (`be5invis.vscode-custom-css`) and install
+- Open VS Code → Extensions → search “Custom CSS and JS Loader” (`be5invis.vscode-custom-css`) → Install
 
-2. Clone or download this repo
+### 2) Put the files in a stable location
 
-   ```bash
-   git clone https://github.com/nuwandev/vscode-personal-skin.git
-   cd vscode-personal-skin
-   ```
+Keep `vs-code.css` (and optionally `vs-code.js`) somewhere that won’t move. You’ll reference them via absolute `file:///...` URLs.
 
-3. Point VS Code to the CSS/JS files
+### 3) Add the import paths (pick your OS)
 
-   Open VS Code Settings (JSON) and add:
+Notes (all OSes):
 
-   ```json
-   {
-     "vscode_custom_css.imports": [
-       "file:///d:/CoreX/Customization/vscode-enhanced-ui/vs-code.css",
-       "file:///d:/CoreX/Customization/vscode-enhanced-ui/vs-code.js"
-     ]
-   }
-   ```
+- These must be `file:///` URLs (not plain file paths).
+- Use forward slashes `/` in the URL.
+- If your path contains spaces, encode them as `%20`.
 
-   Notes:
+#### Windows
 
-   - Use `file:///` absolute paths. On macOS/Linux, change the path accordingly (examples below).
-   - If you only want CSS, you can remove the JS line.
+Settings (JSON):
 
-4. Enable the custom CSS/JS
-   - Run command: `Ctrl+Shift+P` → "Reload Custom CSS and JS"
-   - VS Code will restart and apply the skin
+```json
+{
+  "vscode_custom_css.imports": [
+    "file:///d:/CoreX/Customization/vscode-enhanced-ui/vs-code.css",
+    "file:///d:/CoreX/Customization/vscode-enhanced-ui/vs-code.js"
+  ]
+}
+```
 
-### Path Examples
+CSS-only (optional): remove the JS line.
 
-- Windows: `file:///d:/CoreX/Customization/vscode-enhanced-ui/vs-code.css`
-- macOS: `file:///Users/<you>/vscode-personal-skin/vs-code.css`
-- Linux: `file:///home/<you>/vscode-personal-skin/vs-code.css`
+Enable/reload:
+
+- `Ctrl+Shift+P` → “Reload Custom CSS and JS”
+
+#### macOS
+
+Settings (JSON):
+
+```json
+{
+  "vscode_custom_css.imports": [
+    "file:///Users/<you>/vscode-enhanced-ui/vs-code.css",
+    "file:///Users/<you>/vscode-enhanced-ui/vs-code.js"
+  ]
+}
+```
+
+Enable/reload:
+
+- `Cmd+Shift+P` → “Reload Custom CSS and JS”
+
+#### Linux
+
+Settings (JSON):
+
+```json
+{
+  "vscode_custom_css.imports": [
+    "file:///home/<you>/vscode-enhanced-ui/vs-code.css",
+    "file:///home/<you>/vscode-enhanced-ui/vs-code.js"
+  ]
+}
+```
+
+Enable/reload:
+
+- `Ctrl+Shift+P` → “Reload Custom CSS and JS”
 
 ## Customize
 
 - Animations: Defaults are fast and subtle. You can tweak durations/curves in `vs-code.css`.
-- Scrollbars: Currently hidden. Search for "SCROLLBARS" section to switch to thin/fade variant.
-- Activity bar: Decorative and minimal; sizes and spacing in the "ACTIVITY BAR" section.
+- Scrollbars: Currently fully hidden. Search for the "SCROLLBARS" section and relax/remove those rules to restore scrollbars.
+- Activity bar: Sizes, spacing, and hover/active effects live in the "ACTIVITY BAR" section.
 - Accent color: Primary blue is `#61afef`; update to your theme if desired.
 
 ## Troubleshooting
 
-- After updates, re-run: `Ctrl+Shift+P` → "Reload Custom CSS and JS"
+- After updates, re-run from the Command Palette → “Reload Custom CSS and JS”
 - VS Code updates may disable the loader. Re-enable via the same command.
 - If something looks broken:
   - Disable the extension temporarily
@@ -90,7 +120,7 @@ This skin uses the extension `be5invis.vscode-custom-css` to inject custom CSS/J
 ## Uninstall / Revert
 
 - Remove the entries from `vscode_custom_css.imports`
-- Run: `Ctrl+Shift+P` → "Reload Custom CSS and JS"
+- Run from the Command Palette → “Reload Custom CSS and JS”
 
 ## License
 

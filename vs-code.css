@@ -128,8 +128,6 @@
   }
 }
 
-.quick-input-filter
-
 /* INPUTS / BUTTONS */
 .monaco-inputbox {
   border-radius: 6px !important;
@@ -382,6 +380,28 @@
 .titlebar-container .menubar .menubar-menu-button.open {
   background: rgba(97, 175, 239, 0.2) !important;
   color: #7cc5ff !important;
+}
+
+/* Subtle glow for window title / project name */
+#workbench\.parts\.titlebar > div > div.titlebar-center > div,
+.titlebar-center .window-title {
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-shadow:
+    0 0 3px rgba(97, 175, 239, 0.35),
+    0 0 6px rgba(97, 175, 239, 0.2) !important;
+  transition:
+    color 0.18s cubic-bezier(0.25, 0.1, 0.25, 1),
+    text-shadow 0.18s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+}
+
+.part.titlebar.inactive
+  #workbench\.parts\.titlebar
+  > div
+  > div.titlebar-center
+  > div,
+.part.titlebar.inactive .titlebar-center .window-title {
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-shadow: none !important;
 }
 
 .command-center {
