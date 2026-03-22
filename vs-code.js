@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         hideBackdrop();
       }
     },
-    true
+    true,
   );
 
   function showBackdrop() {
@@ -44,12 +44,29 @@ document.addEventListener("DOMContentLoaded", function () {
     backdrop.id = "command-blur";
     backdrop.addEventListener("click", hideBackdrop);
     targetDiv.appendChild(backdrop);
+
+    // Trigger CSS opacity transition for a smooth fade-in
+    requestAnimationFrame(() => {
+      backdrop.style.opacity = "1";
+    });
   }
 
   function hideBackdrop() {
     const element = document.getElementById("command-blur");
     if (element) {
-      element.remove();
+      // Fade out, then remove after transition
+      element.style.opacity = "0";
+
+      const remove = () => {
+        if (element && element.parentNode) {
+          element.parentNode.removeChild(element);
+        }
+      };
+
+      element.addEventListener("transitionend", remove, { once: true });
+
+      // Fallback in case transitionend doesn't fire
+      setTimeout(remove, 200);
     }
   }
 });
