@@ -1,0 +1,381 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.fontSize": 15,
+  "editor.cursorWidth": 2,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "smooth",
+  "editor.smoothScrolling": true,
+  "editor.fastScrollSensitivity": 3,
+  "editor.scrollBeyondLastLine": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.foldingStrategy": "indentation",
+  "editor.guides.indentation": true,
+  "editor.linkedEditing": true,
+  "editor.autoClosingTags": "languageDefined",
+
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.js": "${basename}.test.js,${basename}.spec.js",
+    "*.ts": "${basename}.test.ts,${basename}.spec.ts"
+  },
+  "workbench.editor.empty.hint": "hidden",
+
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.altClickMovesCursor": false,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.minimumContrastRatio": 4.5,
+
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+
+  "glassit.alpha": 250,
+  "todohighlight.isEnable": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  "tabnine.experimentalAutoImports": true,
+
+  "json.schemas": [
+    {
+      "exclude": ["node_modules"]
+    }
+  ],
+
+  "cSpell.userWords": [
+    "anykey",
+    "ARCJET",
+    "autoincrement",
+    "careerscale",
+    "cdylib",
+    "cioc",
+    "Dartpedia",
+    "demonyms",
+    "dewpoint",
+    "doctrace",
+    "EXSTYLE",
+    "feelslike",
+    "firestore",
+    "gini",
+    "GROQ",
+    "gsap",
+    "imdb",
+    "Kade",
+    "Koope",
+    "latlng",
+    "localtime",
+    "logtail",
+    "maxlength",
+    "Nodemailer",
+    "nodenext",
+    "Nuwan",
+    "nuwandev",
+    "OMDB",
+    "Panadura",
+    "precip",
+    "qrcode",
+    "QSTASH",
+    "rlib",
+    "securelaw",
+    "serde",
+    "Shoutout",
+    "Siripura",
+    "staticlib",
+    "Swal",
+    "sweetalert",
+    "tauri",
+    "Theekshana",
+    "unliked",
+    "unlisten",
+    "virtuals",
+    "VITE"
+  ],
+
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4o",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "css": true,
+    "shellscript": false,
+    "javascript": true
+  },
+
+  "extensions.autoUpdate": true,
+  "extensions.autoCheckUpdates": true,
+
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "typescript.tsserver.useSyntaxServer": "auto",
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "javascript.validate.enable": true,
+  "typescript.validate.enable": true,
+  "javascript.suggest.autoImports": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "typescript.tsserver.log": "off",
+  "typescript.disableAutomaticTypeAcquisition": false,
+  "typescript.referencesCodeLens.enabled": true,
+  "javascript.referencesCodeLens.enabled": true,
+
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.next": true,
+    "**/.git": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.next/**": true
+  },
+  "files.maxMemoryForLargeFilesMB": 4096,
+
+  "redhat.telemetry.enabled": true,
+  "update.mode": "manual",
+  "workbench.startupEditor": "none",
+  "codeium.enableCodeLens": false,
+  "telemetry.telemetryLevel": "off",
+  "codeium.enableConfig": {
+    "*": true
+  },
+  "chat.instructionsFilesLocations": {
+    ".github/instructions": true,
+    "C:\\Users\\S N C\\AppData\\Local\\Temp\\postman-collections-post-response.instructions.md": true,
+    "C:\\Users\\S N C\\AppData\\Local\\Temp\\postman-collections-pre-request.instructions.md": true,
+    "C:\\Users\\S N C\\AppData\\Local\\Temp\\postman-folder-post-response.instructions.md": true,
+    "C:\\Users\\S N C\\AppData\\Local\\Temp\\postman-folder-pre-request.instructions.md": true,
+    "C:\\Users\\S N C\\AppData\\Local\\Temp\\postman-http-request-post-response.instructions.md": true,
+    "C:\\Users\\S N C\\AppData\\Local\\Temp\\postman-http-request-pre-request.instructions.md": true
+  },
+  "window.menuBarVisibility": "toggle",
+
+  //for custom css and js looader
+  "vscode_custom_css.imports": [
+    "file:///D:\\CoreX\\Customization\\vscode-enhanced-ui\\vs-code.css",
+    "file:///D:\\CoreX\\Customization\\vscode-enhanced-ui\\vs-code.js"
+  ],
+  "editor.mouseWheelZoom": true,
+  "explorer.autoReveal": true,
+  "workbench.sideBar.location": "right",
+  "liveServer.settings.donotVerifyTags": true,
+  "liveServer.settings.fullReload": true,
+  "license.author": "nuwandev",
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "files.autoSave": "afterDelay",
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "mdb.mcp.server": "prompt",
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "auto-close-tag.activationOnLanguage": [
+    "html",
+    "xml",
+    "php",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+  "liveServer.settings.donotShowInfoMsg": true,
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "chat.tools.terminal.autoApprove": {
+    "Remove-Item": true,
+    "git checkout app/api/v1/analytics/route.ts 2>&1": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "@\"\n\"use client\";\n\nimport { useEffect, useState } from \"react\";\nimport { useParams, useRouter } from \"next/navigation\";\nimport { DocumentRecord, LogEntry, STAGE_ACTIONS } from \"@/app/types/types\";\nimport { getDocumentStatus } from \"@/app/config/stages\";\nimport Link from \"next/link\";\n\nexport default function DocumentPage() {\n  const params = useParams();\n  const router = useRouter();\n  const docId = params.id as string;\n  \n  const [doc, setDoc] = useState<DocumentRecord | null>(null);\n  const [isLoading, setIsLoading] = useState(true);\n  const [selectedAction, setSelectedAction] = useState(\"\");\n  const [note, setNote] = useState(\"\");\n  const [isSubmitting, setIsSubmitting] = useState(false);\n\n  useEffect(() => {\n    fetchDocument();\n  }, [docId]);\n\n  const fetchDocument = async () => {\n    try {\n      const res = await fetch(`/api/v1/doc/${docId}/get`);\n      const data = await res.json();\n      if (data.success) {\n        setDoc(data.document);\n      }\n    } catch (error) {\n      console.error(\"Failed to fetch document:\", error);\n    } finally {\n      setIsLoading(false);\n    }\n  };\n\n  const handleAddLog = async (e: React.FormEvent) => {\n    e.preventDefault();\n    if (!doc || !selectedAction) return;\n\n    setIsSubmitting(true);\n    try {\n      const actionConfig = STAGE_ACTIONS[doc.currentStage].find(\n        (a) => a.action === selectedAction\n      );\n\n      const res = await fetch(`/api/v1/doc/${docId}/addLog`, {\n        method: \"POST\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({\n          action: selectedAction,\n          event: actionConfig?.event || \"instant\",\n          note: note || undefined,\n          nextStage: actionConfig?.nextStage,\n        }),\n      });\n\n      const data = await res.json();\n      if (data.success) {\n        setDoc(data.document);\n        setSelectedAction(\"\");\n        setNote(\"\");\n      }\n    } catch (error) {\n      console.error(\"Failed to add log:\", error);\n    } finally {\n      setIsSubmitting(false);\n    }\n  };\n\n  if (isLoading) {\n    return (\n      <div className=\"min-h-screen flex items-center justify-center\">\n        <div className=\"animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600\"></div>\n      </div>\n    );\n  }\n\n  if (!doc) {\n    return (\n      <div className=\"min-h-screen flex items-center justify-center\">\n        <div className=\"text-center\">\n          <h2 className=\"text-2xl font-bold mb-4\">Document Not Found</h2>\n          <Link href=\"/dashboard\" className=\"text-blue-600 hover:underline\">\n            ← Back to Dashboard\n          </Link>\n        </div>\n      </div>\n    );\n  }\n\n  const statusColor = getDocumentStatus(doc.currentStage) === \"completed\"\n    ? \"bg-green-100 text-green-800\"\n    : getDocumentStatus(doc.currentStage) === \"pending\"\n    ? \"bg-yellow-100 text-yellow-800\"\n    : \"bg-blue-100 text-blue-800\";\n\n  return (\n    <div className=\"min-h-screen bg-gray-50\">\n      <header className=\"bg-white shadow-sm border-b\">\n        <div className=\"max-w-5xl mx-auto px-4 py-4\">\n          <Link href=\"/dashboard\" className=\"text-blue-600 hover:underline text-sm\">\n            ← Back to Dashboard\n          </Link>\n          <h1 className=\"text-2xl font-bold mt-2\">Document Details</h1>\n        </div>\n      </header>\n\n      <main className=\"max-w-5xl mx-auto px-4 py-8\">\n        <div className=\"grid grid-cols-1 lg:grid-cols-3 gap-6\">\n          {/* Document Info */}\n          <div className=\"lg:col-span-2 space-y-6\">\n            <div className=\"bg-white rounded-lg shadow-sm border p-6\">\n              <div className=\"flex items-center justify-between mb-4\">\n                <h2 className=\"text-lg font-bold\">Information</h2>\n                <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusColor}`}>\n                  {getDocumentStatus(doc.currentStage).toUpperCase()}\n                </span>\n              </div>\n              \n              <div className=\"grid grid-cols-2 gap-4\">\n                <div>\n                  <div className=\"text-sm text-gray-500\">Document ID</div>\n                  <div className=\"font-mono font-medium\">{doc._id}</div>\n                </div>\n                <div>\n                  <div className=\"text-sm text-gray-500\">Current Stage</div>\n                  <div className=\"font-medium capitalize\">{doc.currentStage}</div>\n                </div>\n                <div>\n                  <div className=\"text-sm text-gray-500\">Vehicle Number</div>\n                  <div className=\"font-medium\">{doc.meta.vehicleNumber || \"—\"}</div>\n                </div>\n                <div>\n                  <div className=\"text-sm text-gray-500\">Owner Name</div>\n                  <div className=\"font-medium\">{doc.meta.ownerName || \"—\"}</div>\n                </div>\n                <div>\n                  <div className=\"text-sm text-gray-500\">Phone Number</div>\n                  <div className=\"font-medium\">{doc.meta.phoneNo || \"—\"}</div>\n                </div>\n                <div>\n                  <div className=\"text-sm text-gray-500\">Address</div>\n                  <div className=\"font-medium\">{doc.meta.address || \"—\"}</div>\n                </div>\n              </div>\n            </div>\n\n            {/* Activity Logs */}\n            <div className=\"bg-white rounded-lg shadow-sm border p-6\">\n              <h2 className=\"text-lg font-bold mb-4\">Activity Log</h2>\n              <div className=\"space-y-3\">\n                {doc.activityLogs.length === 0 ? (\n                  <p className=\"text-gray-500 text-sm\">No activity yet</p>\n                ) : (\n                  doc.activityLogs.map((log, idx) => (\n                    <div key={idx} className=\"border-l-4 border-blue-500 pl-4 py-2\">\n                      <div className=\"flex items-center justify-between\">\n                        <span className=\"font-medium\">{log.action}</span>\n                        <span className=\"text-xs text-gray-500\">\n                          {new Date(log.time).toLocaleString()}\n                        </span>\n                      </div>\n                      {log.note && (\n                        <p className=\"text-sm text-gray-600 mt-1\">{log.note}</p>\n                      )}\n                      <div className=\"text-xs text-gray-500 mt-1\">\n                        Stage: {log.stage} • Event: {log.event}\n                      </div>\n                    </div>\n                  ))\n                )}\n              </div>\n            </div>\n          </div>\n\n          {/* Actions Panel */}\n          <div className=\"lg:col-span-1\">\n            <div className=\"bg-white rounded-lg shadow-sm border p-6\">\n              <h2 className=\"text-lg font-bold mb-4\">Add Action</h2>\n              \n              {STAGE_ACTIONS[doc.currentStage].length === 0 ? (\n                <p className=\"text-gray-500 text-sm\">No actions available for this stage</p>\n              ) : (\n                <form onSubmit={handleAddLog} className=\"space-y-4\">\n                  <div>\n                    <label className=\"block text-sm font-medium mb-2\">Action</label>\n                    <select\n                      value={selectedAction}\n                      onChange={(e) => setSelectedAction(e.target.value)}\n                      className=\"w-full px-3 py-2 border rounded-lg\"\n                      required\n                    >\n                      <option value=\"\">Select action...</option>\n                      {STAGE_ACTIONS[doc.currentStage].map((action) => (\n                        <option key={action.action} value={action.action}>\n                          {action.label}\n                        </option>\n                      ))}\n                    </select>\n                  </div>\n\n                  <div>\n                    <label className=\"block text-sm font-medium mb-2\">Note (Optional)</label>\n                    <textarea\n                      value={note}\n                      onChange={(e) => setNote(e.target.value)}\n                      className=\"w-full px-3 py-2 border rounded-lg\"\n                      rows={3}\n                      placeholder=\"Add a note...\"\n                    />\n                  </div>\n\n                  <button\n                    type=\"submit\"\n                    disabled={isSubmitting || !selectedAction}\n                    className=\"w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50\"\n                  >\n                    {isSubmitting ? \"Submitting...\" : \"Submit\"}\n                  </button>\n                </form>\n              )}\n            </div>\n          </div>\n        </div>\n      </main>\n    </div>\n  );\n}\n\"@ | Out-File -FilePath \"app/doc/[id]/page.tsx\" -Encoding utf8": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "$content": true,
+    "import": true,
+    "export": true,
+    "const": true,
+    "DocumentRecord": true,
+    "null": true,
+    "(null)": true,
+    "useEffect(()": true,
+    "{": true,
+    "},": true,
+    "if": true,
+    "}": true,
+    "doc": true,
+    "selectedAction)": true,
+    "setIsSubmitting(true)": true,
+    "try": true,
+    "a.action": true,
+    "\"instant\",": true,
+    "undefined,": true,
+    "setSelectedAction(\"\")": true,
+    "setNote(\"\")": true,
+    "div": true,
+    "/div": true,
+    ")": true,
+    "doc)": true,
+    "h2": true,
+    "Document": true,
+    "/h": true,
+    "Link": true,
+    "Back": true,
+    "/Link": true,
+    "return": true,
+    "header": true,
+    "h1": true,
+    "/header": true,
+    "main": true,
+    "Information": true,
+    "span": true,
+    "{getDocumentStatus(doc.currentStage).toUpperCase()}": true,
+    "/span": true,
+    "ID": true,
+    "{doc._id}": true,
+    "Stage": true,
+    "{doc.currentStage}": true,
+    "Vehicle": true,
+    "{doc.meta.vehicleNumber": true,
+    "\"—\"}": true,
+    "Owner": true,
+    "{doc.meta.ownerName": true,
+    "Activity": true,
+    "{doc.activityLogs.length": true,
+    "p": true,
+    "No": true,
+    "/p": true,
+    "(": true,
+    "{log.action}": true,
+    "{new": true,
+    "{log.note": true,
+    "{log.note}": true,
+    ")}": true,
+    "))": true,
+    "Add": true,
+    "{STAGE_ACTIONS[doc.currentStage].length": true,
+    "form": true,
+    "label": true,
+    "Action": true,
+    "/label": true,
+    "select": true,
+    "setSelectedAction(e.target.value)}": true,
+    "option": true,
+    "Select...": true,
+    "/option": true,
+    "{STAGE_ACTIONS[doc.currentStage].map((action)": true,
+    "{action.label}": true,
+    "))}": true,
+    "/select": true,
+    "Note": true,
+    "textarea": true,
+    "setNote(e.target.value)}": true,
+    "button": true,
+    "selectedAction}": true,
+    "{isSubmitting": true,
+    "/button": true,
+    "/form": true,
+    "/main": true,
+    "Out-File": true,
+    "@\"": true,
+    "any": true,
+    "res.json())": true,
+    "setIsLoading(false))": true,
+    "←": true,
+    "📊": true,
+    "Total": true,
+    "0}": true,
+    "Pending": true,
+    "Active": true,
+    "Completed": true,
+    "Documents": true,
+    "Object.entries(stats.summary.byStage).map(([stage,": true,
+    "Performance": true,
+    "Avg": true,
+    "Created": true,
+    "New-Item": true,
+    "Move-Item": true,
+    "Test-Path": true,
+    "/^npx eslint src/ 2>&1$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "npx": true,
+    "npm run lint": true,
+    "git add": true,
+    "git commit": true,
+    "git rebase": true,
+    "Get-Process": true,
+    "Set-Content": true
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "svg.preview.mode": "svg",
+  "workbench.navigationControl.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "sonarlint.automaticAnalysis": true,
+  "sonarlint.focusOnNewCode": false,
+  "sonarlint.rules": {
+    "javascript:S6747": {
+      "level": "on"
+    }
+  },
+  "sonarlint.analysisExcludesStandalone": "**/node_modules/**",
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "terminal.integrated.initialHint": false,
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "switch:command"
+  ],
+  "@azure.argTenant": "",
+  "workbench.activityBar.location": "bottom",
+  "window.commandCenter": false
+}
