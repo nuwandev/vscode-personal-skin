@@ -6,23 +6,23 @@
 .pane-header,
 .tab-close {
   transition:
-    opacity 0.16s cubic-bezier(0.25, 0.1, 0.25, 1),
-    border-color 0.16s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    opacity 0.12s cubic-bezier(0.25, 0.1, 0.25, 1),
+    border-color 0.12s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
 
 .part.sidebar,
 .part.panel,
 .part.auxiliarybar {
   transition:
-    width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    height 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    width 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 /* SPLIT VIEW SASH */
 .sash {
   transition:
-    background-color 0.2s ease,
-    opacity 0.2s ease !important;
+    background-color 0.12s ease,
+    opacity 0.12s ease !important;
 }
 
 .sash:hover {
@@ -40,9 +40,9 @@
   margin-right: 2px !important;
   padding: 0 12px !important;
   transition:
-    background-color 0.18s cubic-bezier(0.25, 0.1, 0.25, 1),
-    box-shadow 0.18s cubic-bezier(0.25, 0.1, 0.25, 1),
-    transform 0.18s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    background-color 0.12s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.12s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.12s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
   will-change: transform, box-shadow, background-color !important;
 }
 
@@ -61,8 +61,8 @@
     0 0 10px rgba(97, 175, 239, 0.3),
     0 0 20px rgba(97, 175, 239, 0.15) !important;
   transition:
-    opacity 0.14s cubic-bezier(0.4, 0, 0.2, 1),
-    text-shadow 0.3s ease !important;
+    opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    text-shadow 0.12s ease !important;
 }
 
 .tabs-container .tab:not(:hover) .tab-close {
@@ -79,7 +79,7 @@
 
 /* COMMAND PALETTE */
 .quick-input-widget {
-  animation: palettePopIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  animation: palettePopIn 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
@@ -142,7 +142,7 @@
   margin-bottom: 0 !important;
   border-radius: 4px !important;
   min-height: 22px !important;
-  animation: slideDown 0.15s ease-out !important;
+  animation: slideDown 0.12s ease-out !important;
 }
 
 .monaco-list-row .monaco-inputbox.synthetic-focus,
@@ -155,10 +155,10 @@
 
 .monaco-inputbox {
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    color 0.2s ease !important;
+    background-color 0.12s ease,
+    border-color 0.12s ease,
+    box-shadow 0.12s ease,
+    color 0.12s ease !important;
 }
 
 .quick-input-list .monaco-list-row {
@@ -219,19 +219,19 @@
 /* EXPLORER / SIDEBAR */
 .explorer-folders-view .monaco-list-row {
   border-radius: 6px !important;
-  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .explorer-folders-view .monaco-tl-contents {
   transition:
-    background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .explorer-folders-view .monaco-icon-label {
   transition:
-    color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.15s ease !important;
+    color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.12s ease !important;
 }
 
 .explorer-folders-view .monaco-list-row:hover .monaco-tl-contents {
@@ -254,7 +254,7 @@
 
 .pane-header {
   font-weight: 500 !important;
-  transition: background-color 0.2s ease !important;
+  transition: background-color 0.12s ease !important;
 }
 
 .pane-header:hover {
@@ -262,13 +262,13 @@
 }
 
 .pane {
-  transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: height 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
   overflow: hidden !important;
 }
 
 .pane-body {
-  transition: opacity 0.2s ease !important;
-  animation: slideFadeInRight 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: opacity 0.12s ease !important;
+  animation: slideFadeInRight 0.12s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
 }
 
 @keyframes slideFadeInRight {
@@ -284,7 +284,7 @@
 
 /* BOXES AND MODALS */
 .monaco-dialog-box {
-  animation: dialogPopIn 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  animation: dialogPopIn 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
   border-radius: 12px !important;
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.4),
@@ -321,8 +321,8 @@
     0 0 3px rgba(97, 175, 239, 0.35),
     0 0 6px rgba(97, 175, 239, 0.2) !important;
   transition:
-    color 0.18s cubic-bezier(0.25, 0.1, 0.25, 1),
-    text-shadow 0.18s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    color 0.12s cubic-bezier(0.25, 0.1, 0.25, 1),
+    text-shadow 0.12s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
 
 .part.titlebar.inactive
@@ -340,18 +340,18 @@
   background: rgba(255, 255, 255, 0.04) !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   transition:
-    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
   max-width: 500px !important;
 }
 
 .command-center {
   border-radius: 8px !important;
   transition:
-    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .command-center:hover {
@@ -365,8 +365,8 @@
 .command-center .search-label {
   opacity: 0.6 !important;
   transition:
-    opacity 0.15s ease,
-    color 0.15s ease !important;
+    opacity 0.12s ease,
+    color 0.12s ease !important;
 }
 
 .command-center:hover .search-label {
@@ -461,7 +461,7 @@
   box-shadow:
     0 8px 30px rgba(0, 0, 0, 0.4),
     0 2px 8px rgba(0, 0, 0, 0.2) !important;
-  animation: hoverRise 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  animation: hoverRise 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   backdrop-filter: blur(8px) !important;
 }
 
@@ -486,7 +486,7 @@
   box-shadow:
     0 12px 40px rgba(0, 0, 0, 0.4),
     0 4px 12px rgba(0, 0, 0, 0.2) !important;
-  animation: suggestSlideUp 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  animation: suggestSlideUp 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   backdrop-filter: blur(10px) !important;
 }
 
@@ -523,7 +523,7 @@
 }
 
 .notification-toast {
-  animation: notificationSlide 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  animation: notificationSlide 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 /* FIND WIDGET */
@@ -538,7 +538,7 @@
 
 /* --- CONTEXT & MENUBAR MENUS (DEDUPLICATED) --- */
 .monaco-menu-container {
-  animation: menuPopIn 0.15s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  animation: menuPopIn 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
 }
 
 @keyframes menuPopIn {
@@ -615,8 +615,8 @@
   border-radius: 6px !important;
   margin: 0 2px !important;
   transition:
-    background 0.13s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.13s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
   color: rgba(255, 255, 255, 0.55) !important;
   font-weight: 500 !important;
 }
@@ -728,11 +728,11 @@
 .monaco-button {
   border-radius: 8px !important;
   transition:
-    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background-color 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-    color 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-    border-color 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.12s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.12s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.12s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   position: relative !important;
 }
 
@@ -907,8 +907,8 @@
 
 .monaco-tl-twistie.collapsible {
   transition:
-    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-    color 0.15s ease !important;
+    transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.12s ease !important;
 }
 
 .monaco-tl-twistie.collapsible:not(.collapsed) {
@@ -922,12 +922,12 @@
 
 .codicon-chevron-down,
 .codicon-chevron-right {
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 /* NOTIFICATIONS */
 .notification-toast {
-  animation: notificationSlide 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  animation: notificationSlide 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 @keyframes notificationSlide {
@@ -956,7 +956,7 @@
 
 /* FIND WIDGET */
 .editor-widget.find-widget {
-  animation: slideDown 0.15s ease !important;
+  animation: slideDown 0.12s ease !important;
 }
 
 @keyframes slideDown {
@@ -982,7 +982,7 @@
 }
 
 .minimap {
-  transition: opacity 0.15s ease !important;
+  transition: opacity 0.12s ease !important;
 }
 
 .editor-actions .action-item {
@@ -1140,7 +1140,7 @@
 
 .editor-group-watermark {
   animation: breathingWatermark 8s ease-in-out infinite !important;
-  transition: filter 0.3s ease !important;
+  transition: filter 0.12s ease !important;
 }
 
 .editor-group-watermark:hover {
@@ -1164,3 +1164,5 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
+
+
