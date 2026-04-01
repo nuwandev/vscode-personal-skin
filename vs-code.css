@@ -229,16 +229,19 @@
 }
 
 .explorer-folders-view .monaco-icon-label {
-  transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition:
+    color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.15s ease !important;
 }
 
 .explorer-folders-view .monaco-list-row:hover .monaco-tl-contents {
-  background: rgba(255, 255, 255, 0.06) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
   transform: translateX(4px) !important;
 }
 
 .explorer-folders-view .monaco-list-row:hover .monaco-icon-label {
-  color: #e1e1e1 !important;
+  /* Use filter/brightness or text-shadow instead of overwriting dynamic text color! This preserves error/warning colors. */
+  filter: brightness(1.25) drop-shadow(0 0 2px rgba(255, 255, 255, 0.2)) !important;
 }
 
 .explorer-folders-view .monaco-list-row.selected {
@@ -265,147 +268,6 @@
 
 .pane-body {
   transition: opacity 0.2s ease !important;
-}
-
-/* ACTIVITY BAR */
-.part.activitybar {
-  width: 56px !important;
-  min-width: 56px !important;
-  padding: 8px 0 !important;
-  background: #1a1d21 !important;
-  border-right: 1px solid rgba(255, 255, 255, 0.04) !important;
-}
-
-/* Center icons in sidebar footer composite bar */
-#workbench\.parts\.sidebar
-  > div.composite.has-composite-bar.header-or-footer.footer
-  > div.composite-bar-container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 100% !important;
-}
-
-#workbench\.parts\.sidebar
-  > div.composite.has-composite-bar.header-or-footer.footer
-  .composite-bar
-  .monaco-action-bar
-  .actions-container {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 4px !important;
-}
-
-.activitybar > .content {
-  width: 56px !important;
-  padding: 0 !important;
-}
-
-.activitybar .composite-bar {
-  padding: 0 !important;
-}
-
-.activitybar .actions-container {
-  padding: 4px 0 !important;
-}
-
-.activitybar .action-item {
-  width: 42px !important;
-  height: 42px !important;
-  margin: 6px auto !important;
-  padding: 0 !important;
-  border-radius: 10px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: transparent !important;
-  transition:
-    background-color 0.18s cubic-bezier(0.25, 0.1, 0.25, 1),
-    transform 0.18s cubic-bezier(0.25, 0.1, 0.25, 1),
-    box-shadow 0.18s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
-  position: relative !important;
-  transform: none !important;
-  will-change: transform, background-color, box-shadow !important;
-}
-
-.activitybar .action-item .action-label {
-  width: 42px !important;
-  height: 42px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 20px !important;
-  line-height: 1 !important;
-  color: rgba(255, 255, 255, 0.55) !important;
-  transition: color 0.18s ease !important;
-}
-
-.activitybar .action-item .codicon,
-.activitybar .action-item .action-label.codicon,
-.activitybar .action-item .action-label .codicon {
-  font-size: 20px !important;
-  width: 20px !important;
-  height: 20px !important;
-  line-height: 1 !important;
-}
-
-.activitybar .action-item .action-label.icon,
-.activitybar .action-item img.icon {
-  width: 20px !important;
-  height: 20px !important;
-  object-fit: contain !important;
-  opacity: 0.55 !important;
-  transition: opacity 0.18s ease !important;
-}
-
-.activitybar .action-item:hover {
-  background: rgba(97, 175, 239, 0.1) !important;
-  transform: scale(1.05) !important;
-}
-
-.activitybar .action-item:hover .action-label {
-  color: #61afef !important;
-}
-
-.activitybar .action-item:hover .action-label.icon,
-.activitybar .action-item:hover img.icon {
-  opacity: 1 !important;
-}
-
-.activitybar .action-item:active {
-  transform: scale(0.95) !important;
-  background: rgba(97, 175, 239, 0.15) !important;
-}
-
-.activitybar .action-item.checked {
-  background: rgba(97, 175, 239, 0.08) !important;
-  border-left: 3px solid #61afef !important;
-  border-radius: 0 10px 10px 0 !important;
-  margin-left: 0 !important;
-  padding-left: 4px !important;
-}
-
-.activitybar .action-item.checked .action-label {
-  color: #61afef !important;
-}
-
-.activitybar .action-item.checked .action-label.icon,
-.activitybar .action-item.checked img.icon {
-  opacity: 1 !important;
-}
-
-.activitybar .active-item-indicator {
-  display: none !important;
-  opacity: 0 !important;
-  width: 0 !important;
-}
-
-.activitybar .global-actions .action-item {
-  margin: 6px auto !important;
 }
 
 /* TITLE BAR */
@@ -994,8 +856,15 @@
   font-size: 11px !important;
 }
 
+.monaco-tl-twistie.collapsible {
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.15s ease !important;
+}
+
 .monaco-tl-twistie.collapsible:not(.collapsed) {
   color: #61afef !important;
+  filter: drop-shadow(0 0 2px rgba(97, 175, 239, 0.4)) !important;
 }
 
 .codicon-breadcrumb-separator {
@@ -1004,7 +873,7 @@
 
 .codicon-chevron-down,
 .codicon-chevron-right {
-  transition: transform 0.1s ease !important;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 /* NOTIFICATIONS */
@@ -1221,12 +1090,24 @@
 }
 
 .editor-group-watermark {
-  opacity: 0.4 !important;
-  transition: opacity 0.2s ease !important;
+  animation: breathingWatermark 8s ease-in-out infinite !important;
+  transition: filter 0.3s ease !important;
 }
 
 .editor-group-watermark:hover {
-  opacity: 0.6 !important;
+  filter: drop-shadow(0 0 10px rgba(97, 175, 239, 0.2)) !important;
+}
+
+@keyframes breathingWatermark {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.02);
+  }
 }
 
 .notification-toast {
