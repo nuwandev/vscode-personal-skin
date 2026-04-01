@@ -136,6 +136,23 @@
   background: rgba(0, 0, 0, 0.2) !important;
 }
 
+/* Reset input styling inside lists (e.g., creating a new file in Explorer) to fix alignment and glow */
+.monaco-list-row .monaco-inputbox {
+  padding: 0 6px !important;
+  margin-bottom: 0 !important;
+  border-radius: 4px !important;
+  min-height: 22px !important;
+  animation: slideDown 0.15s ease-out !important;
+}
+
+.monaco-list-row .monaco-inputbox.synthetic-focus,
+.monaco-list-row .monaco-inputbox:focus-within {
+  box-shadow:
+    0 0 0 1px rgba(97, 175, 239, 0.5),
+    0 0 8px rgba(97, 175, 239, 0.4) !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
 .monaco-inputbox {
   transition:
     background-color 0.2s ease,
