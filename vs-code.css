@@ -6,16 +6,16 @@
 .pane-header,
 .tab-close {
   transition:
-    opacity 0.12s cubic-bezier(0.25, 0.1, 0.25, 1),
-    border-color 0.12s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    opacity 0.1s cubic-bezier(0.25, 0.1, 0.25, 1),
+    border-color 0.1s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
 
 .part.sidebar,
 .part.panel,
 .part.auxiliarybar {
   transition:
-    width 0.12s cubic-bezier(0.4, 0, 0.2, 1),
-    height 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    width 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 /* SPLIT VIEW SASH */
@@ -79,7 +79,7 @@
 
 /* COMMAND PALETTE */
 .quick-input-widget {
-  animation: palettePopIn 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  animation: palettePopIn 0.09s cubic-bezier(0.2, 1, 0.2, 1) !important;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
@@ -116,7 +116,7 @@
 @keyframes palettePopIn {
   from {
     opacity: 0;
-    transform: translate(-50%, -52%) scale(0.97);
+    transform: translate(-50%, -51%) scale(0.985);
   }
 
   to {
@@ -263,23 +263,10 @@
 
 .pane {
   transition: height 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  overflow: hidden !important;
 }
 
 .pane-body {
   transition: opacity 0.12s ease !important;
-  animation: slideFadeInRight 0.12s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
-}
-
-@keyframes slideFadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 /* BOXES AND MODALS */
@@ -538,71 +525,59 @@
 
 /* --- CONTEXT & MENUBAR MENUS (DEDUPLICATED) --- */
 .monaco-menu-container {
-  animation: menuPopIn 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  /* Keep menu styling minimal; submenu flyouts are sensitive to overflow/z-index/transforms */
+  animation: menuPopIn 0.06s ease-out !important;
+  will-change: opacity !important;
 }
 
 @keyframes menuPopIn {
   from {
     opacity: 0;
-    transform: scale(0.95) translateY(-5px);
   }
   to {
     opacity: 1;
-    transform: scale(1) translateY(0);
   }
 }
 
-.monaco-menu {
-  border-radius: 8px !important;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  overflow: hidden !important;
-  background: rgba(30, 34, 39, 0.85) !important;
-  backdrop-filter: blur(12px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
-  padding: 4px 6px !important;
-}
-
+/* Menu item glow (safe: does not modify menu container/layout) */
 .monaco-menu .monaco-action-bar.vertical .action-item {
   border-radius: 5px !important;
   margin: 2px 0 !important;
   padding: 2px 4px !important;
+  border: 1px solid transparent !important;
   transition:
-    background 0.1s ease,
-    color 0.1s ease,
-    transform 0.1s ease !important;
+    background 0.08s ease,
+    color 0.08s ease,
+    box-shadow 0.08s ease,
+    border-color 0.08s ease !important;
 }
 
 .monaco-menu .monaco-action-bar.vertical .action-item .action-label {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: rgba(255, 255, 255, 0.82) !important;
   font-weight: 500 !important;
-  font-size: 13px !important;
-  transition: color 0.1s ease !important;
+  transition: color 0.08s ease !important;
 }
 
 .monaco-menu .monaco-action-bar.vertical .action-item:hover,
 .monaco-menu .monaco-action-bar.vertical .action-item.focused,
 .monaco-menu .monaco-action-bar.vertical .action-item:focus {
-  background: rgba(97, 175, 239, 0.15) !important;
-  box-shadow: none !important;
-  transform: translateX(2px) !important;
+  background: rgba(97, 175, 239, 0.14) !important;
+  border-color: rgba(97, 175, 239, 0.2) !important;
+  box-shadow:
+    0 0 0 1px rgba(97, 175, 239, 0.08) inset,
+    0 0 12px rgba(97, 175, 239, 0.08) !important;
 }
 
 .monaco-menu .monaco-action-bar.vertical .action-item:hover .action-label,
 .monaco-menu .monaco-action-bar.vertical .action-item.focused .action-label,
 .monaco-menu .monaco-action-bar.vertical .action-item:focus .action-label {
-  color: #99d6ff !important;
-}
-
-.monaco-menu .monaco-action-bar.vertical .action-item:active {
-  background: rgba(97, 175, 239, 0.28) !important;
+  color: rgba(198, 230, 255, 0.95) !important;
 }
 
 .monaco-menu .monaco-action-bar.vertical .action-item.disabled,
 .monaco-menu .monaco-action-bar.vertical .action-item.disabled .action-label {
   background: transparent !important;
   color: rgba(255, 255, 255, 0.38) !important;
-  cursor: not-allowed !important;
 }
 
 .monaco-menu .keybinding {
@@ -833,7 +808,6 @@
 
 .peekview-widget {
   border-radius: 8px !important;
-  overflow: hidden !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
 }
 
@@ -1164,5 +1138,3 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
-
-
