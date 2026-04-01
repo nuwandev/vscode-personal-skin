@@ -113,7 +113,7 @@
   }
 }
 
-@keyframes paletteIn {
+@keyframes palettePopIn {
   from {
     opacity: 0;
     transform: translate(-50%, -52%) scale(0.97);
@@ -268,6 +268,38 @@
 
 .pane-body {
   transition: opacity 0.2s ease !important;
+  animation: slideFadeInRight 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+@keyframes slideFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* BOXES AND MODALS */
+.monaco-dialog-box {
+  animation: dialogPopIn 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  border-radius: 12px !important;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+@keyframes dialogPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* TITLE BAR */
@@ -505,38 +537,55 @@
 /* CONTEXT MENUS */
 
 /* --- CONTEXT & MENUBAR MENUS (DEDUPLICATED) --- */
+.monaco-menu-container {
+  animation: menuPopIn 0.15s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+}
+
+@keyframes menuPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .monaco-menu {
   border-radius: 8px !important;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   overflow: hidden !important;
-  background: rgba(42, 46, 54, 0.98) !important;
-  backdrop-filter: blur(10px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
-  transition:
-    box-shadow 0.18s cubic-bezier(0.25, 0.1, 0.25, 1),
-    background 0.18s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  background: rgba(30, 34, 39, 0.85) !important;
+  backdrop-filter: blur(12px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
+  padding: 4px 6px !important;
 }
 
 .monaco-menu .monaco-action-bar.vertical .action-item {
   border-radius: 5px !important;
-  margin: 2px 4px !important;
+  margin: 2px 0 !important;
+  padding: 2px 4px !important;
   transition:
-    background 0.13s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.13s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background 0.1s ease,
+    color 0.1s ease,
+    transform 0.1s ease !important;
 }
 
 .monaco-menu .monaco-action-bar.vertical .action-item .action-label {
-  color: rgba(255, 255, 255, 0.88) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
   font-weight: 500 !important;
-  transition: color 0.13s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  font-size: 13px !important;
+  transition: color 0.1s ease !important;
 }
 
 .monaco-menu .monaco-action-bar.vertical .action-item:hover,
 .monaco-menu .monaco-action-bar.vertical .action-item.focused,
 .monaco-menu .monaco-action-bar.vertical .action-item:focus {
-  background: rgba(97, 175, 239, 0.18) !important;
-  box-shadow: 0 2px 8px rgba(97, 175, 239, 0.1) !important;
+  background: rgba(97, 175, 239, 0.15) !important;
+  box-shadow: none !important;
+  transform: translateX(2px) !important;
 }
 
 .monaco-menu .monaco-action-bar.vertical .action-item:hover .action-label,
