@@ -1,6 +1,5 @@
 /* BASE TRANSITIONS */
 .tab,
-.action-item,
 .statusbar-item,
 .monaco-button,
 .pane-header,
@@ -524,87 +523,65 @@
 /* CONTEXT MENUS */
 
 /* --- CONTEXT & MENUBAR MENUS (DEDUPLICATED) --- */
-.monaco-menu-container {
-  /* Keep menu styling minimal; submenu flyouts are sensitive to overflow/z-index/transforms */
-  animation: menuPopIn 0.06s ease-out !important;
-  will-change: opacity !important;
+/* Reset: keep menus as close to VS Code defaults as possible.
+   This neutralizes global hover/transition rules that can make context menus feel "styled"/rounded/laggy. */
+.monaco-menu,
+.monaco-menu * {
+  transition: none !important;
 }
 
-@keyframes menuPopIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+/* Brighter menus (readability) without changing layout/behavior */
+.monaco-menu {
+  /* One Dark Pro (darker) friendly: subtle depth without breaking submenus */
+  background: linear-gradient(
+    180deg,
+    rgba(46, 52, 64, 0.98) 0%,
+    rgba(40, 44, 52, 0.98) 100%
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55) !important;
+  border-radius: 0 !important;
+  /* Submenu flyouts can break when filters/overflow get involved */
+  overflow: visible !important;
 }
 
-/* Menu item glow (safe: does not modify menu container/layout) */
-.monaco-menu .monaco-action-bar.vertical .action-item {
-  border-radius: 5px !important;
-  margin: 2px 0 !important;
-  padding: 2px 4px !important;
-  border: 1px solid transparent !important;
-  transition:
-    background 0.08s ease,
-    color 0.08s ease,
-    box-shadow 0.08s ease,
-    border-color 0.08s ease !important;
+/* Ensure submenu flyouts aren't clipped by the context view wrapper */
+.context-view {
+  overflow: visible !important;
 }
 
-.monaco-menu .monaco-action-bar.vertical .action-item .action-label {
-  color: rgba(255, 255, 255, 0.82) !important;
-  font-weight: 500 !important;
-  transition: color 0.08s ease !important;
-}
-
-.monaco-menu .monaco-action-bar.vertical .action-item:hover,
-.monaco-menu .monaco-action-bar.vertical .action-item.focused,
-.monaco-menu .monaco-action-bar.vertical .action-item:focus {
-  background: rgba(97, 175, 239, 0.14) !important;
-  border-color: rgba(97, 175, 239, 0.2) !important;
-  box-shadow:
-    0 0 0 1px rgba(97, 175, 239, 0.08) inset,
-    0 0 12px rgba(97, 175, 239, 0.08) !important;
-}
-
-.monaco-menu .monaco-action-bar.vertical .action-item:hover .action-label,
-.monaco-menu .monaco-action-bar.vertical .action-item.focused .action-label,
-.monaco-menu .monaco-action-bar.vertical .action-item:focus .action-label {
-  color: rgba(198, 230, 255, 0.95) !important;
-}
-
-.monaco-menu .monaco-action-bar.vertical .action-item.disabled,
-.monaco-menu .monaco-action-bar.vertical .action-item.disabled .action-label {
-  background: transparent !important;
-  color: rgba(255, 255, 255, 0.38) !important;
+.monaco-menu .action-label {
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .monaco-menu .keybinding {
-  color: rgba(255, 255, 255, 0.55) !important;
-  font-size: 11px !important;
-  font-family: inherit !important;
+  color: rgba(255, 255, 255, 0.65) !important;
 }
 
+.monaco-menu .separator {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* A little style: subtle accent hover (keeps default layout/behavior) */
+.monaco-menu .monaco-action-bar .action-item:hover .action-menu-item,
+.monaco-menu .monaco-action-bar .action-item.focused .action-menu-item,
+.monaco-menu .monaco-action-bar .action-item:focus .action-menu-item {
+  background: rgba(97, 175, 239, 0.12) !important;
+  border-radius: 0 !important;
+}
+
+.monaco-menu .codicon:hover {
+  color: inherit !important;
+}
+
+.monaco-menu .action-label.codicon:hover {
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* Menubar readability: slightly whiter at rest, no extra backgrounds */
 .titlebar-container .menubar .menubar-menu-button {
-  border-radius: 6px !important;
-  margin: 0 2px !important;
-  transition:
-    background 0.1s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  color: rgba(255, 255, 255, 0.55) !important;
-  font-weight: 500 !important;
-}
-
-.titlebar-container .menubar .menubar-menu-button:hover,
-.titlebar-container .menubar .menubar-menu-button:focus {
-  background: rgba(97, 175, 239, 0.13) !important;
-  color: #99d6ff !important;
-}
-
-.titlebar-container .menubar .menubar-menu-button.open {
-  background: rgba(97, 175, 239, 0.22) !important;
-  color: #c6e6ff !important;
+  color: rgba(255, 255, 255, 0.78) !important;
 }
 
 /* STATUS BAR */
